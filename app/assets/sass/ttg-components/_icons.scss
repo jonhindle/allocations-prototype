@@ -1,0 +1,29 @@
+.ttg-print {
+
+	margin-bottom:  govuk-spacing(6);
+
+	&__icon {
+		display: inline-block;
+		width: 30px;
+		height: 39px;
+		background: url("/public/images/icon-file-download.png") top left no-repeat;
+	}
+
+
+	&__link {
+		display: flex;
+		width: auto;
+		justify-content:  flex-start;
+		align-items: center;
+
+		@extend .govuk-link;
+		@extend .govuk-link--no-visited-state;
+
+
+	}
+
+
+	&__link-description {
+			margin-left: 20px;
+	}
+}

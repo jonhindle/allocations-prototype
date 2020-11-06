@@ -1,0 +1,63 @@
+{% extends "probation/layout.html" %}
+
+{% block pageTitle %}
+  My convictions
+{% endblock %}
+
+
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="">Her Majesty’s Prison & Probation Service</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/prisoner">{{serviceName}}</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link">My convictions</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+        Disclosing your convictions
+      </h1>
+	  <p class="govuk-body-l">What you have to disclose depends on whether your convictions are <span class="govuk-body-l govuk-!-font-weight-bold">spent</span> or <span class="govuk-body-l govuk-!-font-weight-bold">unspent</span>.</p>
+	  	   
+
+	<h2 class="govuk-heading-l">Spent convictions</h2>
+
+		<p>For most jobs, you don’t have to disclose them, even if you’re asked to.</p>
+
+		<p>They won’t be disclosed on a basic criminal record check.</p>
+
+		<p>However, some jobs involve a standard or enhanced criminal record check. For these jobs, you have to disclose spent convictions.</p>
+
+		<p>You don’t have to disclose them when buying insurance.</p>
+
+		<p>You might have to disclose them when travelling or working outside of England and Wales.</p>
+
+		<p>Spent convictions remain on your record for life.
+		</p>
+	<h2 h2 class="govuk-heading-l">Unspent convictions</h2>
+		
+       <p> If asked by an employer, you must disclose them.</p>
+
+		<p>You must disclose them for insurance, mortgages, renting a house and so on.</p>
+
+		<p>You can be prosecuted if you don’t disclose them when asked.</p>	
+ 
+    </div>
+    <div class="govuk-grid-column-one-third">
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "resettlement-planning/layout-prisoner.html" %}
+
+{% block pageTitle %}
+Benefits - {{person.name.first}} {{person.name.last}}
+{% endblock %}
+
+
+
+{% block backlink %}
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block maincontent %}
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption">Nearest GPs to release {{person.name.first}}&apos;s location</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col">Name & address</th>
+      <th class="govuk-table__header" scope="col">Distance</th>
+      <th class="govuk-table__header" scope="col"></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+    {% for surgery in surgeries %}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id={{surgery.id}}" target="_blank">{{surgery.name}}</a>
+      <td class="govuk-table__cell">{{surgery.distance}} miles away</td>
+      <td class="govuk-table__cell"><a class="govuk-button govuk-button--secondary govuk-button--nospacing" href="register-gp/{{surgery.id}}">Select</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+        
+{% endblock %}

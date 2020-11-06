@@ -1,0 +1,37 @@
+{% extends "resettlement-planning/layout-prisoner.html" %}
+
+{% block pageTitle %}
+Benefits B79 form - {{person.name.first}} {{person.name.last}}
+{% endblock %}
+
+
+
+{% block backlink %}
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block maincontent %}
+
+<h2 class="govuk-heading-m">Form B79 Notification of discharge from prison</h2>
+<p>This form can be used as secondary proof of ID for benefit claims.</p>
+<p>A member of prison staff will need to stamp and sign the form before giving it to Lorry.</p>
+<p><a class="govuk-button" href="b79">Complete B79 form</a></p>
+
+
+{% if data.id['secondary-id'] == 0 %}
+
+
+<h1 class="govuk-heading-l">Secondary ID options</h1>
+
+<h2 class="govuk-heading-m">Birth certificate</h2>
+<p class="govuk-body">Use a birth certificate as proof of eligibility to work in the UK.</p>
+
+
+<h2 class="govuk-heading-m">Bank statement</h2>
+
+<p class="govuk-body">A bank statement can be used as secondary ID.</p>
+<p class="govuk-body">You can <a class="govuk-link" href="bank">open a basic bank account </a> for {{person.name.first}} before release.</p>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{
+  "id": 145417,
+  "num_rows": 10,
+  "file_format": "json",
+  "name": "prisoners",
+  "array": true,
+  "columns": [
+    {
+      "name": "index",
+      "null_percentage": 0,
+      "type": "Row Number",
+      "formula": ""
+    },
+    {
+      "name": "name.first",
+      "null_percentage": 0,
+      "type": "First Name",
+      "formula": ""
+    },
+    {
+      "name": "name.last",
+      "null_percentage": 0,
+      "type": "Last Name",
+      "formula": ""
+    },
+    {
+      "name": "address.street",
+      "null_percentage": 0,
+      "type": "Street Address",
+      "formula": ""
+    },
+    {
+      "name": "address.city",
+      "null_percentage": 0,
+      "type": "City",
+      "formula": ""
+    },
+    {
+      "name": "address.postcode",
+      "null_percentage": 0,
+      "type": "Postal Code",
+      "formula": ""
+    },
+    {
+      "name": "address.country",
+      "null_percentage": 0,
+      "type": "Country",
+      "countries": [
+        "United Kingdom"
+      ],
+      "formula": ""
+    },
+    {
+      "name": "releaseDate",
+      "null_percentage": 0,
+      "type": "Date",
+      "min": "03/01/2019",
+      "max": "05/31/2019",
+      "format": "%Y-%m-%dT%H:%M:%SZ",
+      "formula": ""
+    },
+    {
+      "name": "onLicence",
+      "null_percentage": 0,
+      "type": "Boolean",
+      "formula": ""
+    },
+    {
+      "name": "hasAddress",
+      "null_percentage": 0,
+      "type": "Boolean",
+      "formula": ""
+    },
+    {
+      "name": "dateOfBirth",
+      "null_percentage": 0,
+      "type": "Date",
+      "min": "01/01/1950",
+      "max": "04/01/2001",
+      "format": "%Y-%m-%dT%H:%M:%SZ",
+      "formula": ""
+    }
+  ]
+}

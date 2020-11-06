@@ -1,0 +1,42 @@
+{% extends "verify-licence/layout.html" %}
+
+
+{% block pageTitle %}
+  Enter Details
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/url/of/previous/page">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Enter Details</h1>
+
+      <form class="form" action="view-licence" method="post">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="nomis">
+            NOMIS ID
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="nomis" name="nomis" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="code">
+            Check code
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="code" name="code" type="text">
+        </div>
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

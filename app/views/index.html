@@ -1,0 +1,46 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Through the gate prototypes
+      </h1>{{releaseVersion | log }}
+      <p>
+        <strong class="govuk-tag">Note</strong> This page introduces the prototypes, but doesn't form part of any service
+      </p>
+      <hr class="govuk-!-margin-bottom-9 govuk-!-margin-top-7">
+
+      <h2 class="govuk-heading-m">Staff service</h2>
+      <p>Prototype for prison staff and/or probation officers to manage prisoners' resettlement needs before they leave prison.</p>
+      <a href="/resettlement-planning" role="button" draggable="false" class="govuk-button govuk-button--start">
+        Launch prototype
+      </a>
+
+      <hr class="govuk-!-margin-bottom-9 govuk-!-margin-top-7">
+
+      <h2 class="govuk-heading-m">Help Leaving Prison</h2>
+      <p>Prototype for prisoners after release.</p>
+      <a href="/probation" role="button" draggable="false" class="govuk-button govuk-button--start">
+        Launch prototype
+      </a>
+
+      <hr class="govuk-!-margin-bottom-9 govuk-!-margin-top-7">
+
+      <h2 class="govuk-heading-m">Login</h2>
+      <p>Prototype for Login/register process. Register will need to use a <a href="/authentication/users" class="govuk-link">valid login</a>.</p>
+
+      <a href="/authentication" role="button" draggable="false" class="govuk-button govuk-button--start">
+        Launch prototype
+      </a>
+
+    </div>
+</div>
+
+{% endblock %}

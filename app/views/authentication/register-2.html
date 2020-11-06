@@ -1,0 +1,72 @@
+{% extends "authentication/layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<a href="/authentication/sign-in-2" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+          {% if invalidLogin %}
+            <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+              <h2 class="govuk-error-summary__title" id="error-summary-title">
+                The passwords you have entered do not match.
+              </h2>
+              <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                  <li>
+                    <a href="#password">Enter a password</a>
+                  </li>
+                  <li>
+                    <a href="#password-confirm">Enter the password again</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+        <form action="register-2" method="post" novalidate>
+            <h1 class="govuk-heading-xl">
+                Create a new password
+              </h1>
+            <div class="govuk-inset-text">
+              <h2 class="govuk-heading-m">Your password should:</h2>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Be at least 8 characters.</li>
+                <li>Not a common password, like "password" or "password123".</li>
+              </ul>
+            </div>
+            <div class="govuk-form-group {{'govuk-form-group--error' if invalidLogin}}">
+                <label class="govuk-label" for="event-name">
+                    Enter password
+                </label>
+                {% if invalidLogin %}
+                <span id="passport-issued-error" class="govuk-error-message">
+                  The passwords you enter must match
+                </span>
+                {% endif %}
+                <input class="govuk-input govuk-input--width-20 {{'govuk-input--error' if invalidLogin}}" id="password" name="password" type="password">
+            </div>
+            <div class="govuk-form-group {{'govuk-form-group--error' if invalidLogin}}">
+                <label class="govuk-label" for="event-name">
+                    Re-type password
+                </label>
+                {% if invalidLogin %}
+                <span id="passport-issued-error" class="govuk-error-message">
+                  The passwords you enter must match
+                </span>
+                {% endif %}
+                <input class="govuk-input govuk-input--width-20 {{'govuk-input--error' if invalidLogin}}" id="password-confirm" name="password-confirm" type="password">
+            </div>
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

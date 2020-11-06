@@ -1,0 +1,104 @@
+{% extends "resettlement-planning/layout-prisoner.html" %}
+
+{% block pageTitle %}
+Register GP - {{person.name.first}} {{person.name.last}}
+{% endblock %}
+
+
+
+{% block backlink %}
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block maincontent %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-inset-text">
+            A GP registration form (GMS1) will be pre-filled with the details below. 
+        </div>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Surname
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.name.last}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    First names
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.name.first}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Previous surnames
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.previousName}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Date of birth
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.dateOfBirth | formatDate('D MMMM YYYY') }}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.address.street}} <br>
+                    {{person.address.city}} <br>
+                    {{person.address.postcode}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    NHS Number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.nhsNumber}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Phone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.phone}}
+                </dd>
+            </div>
+        </dl>
+        <div><a href="{{surgery.id}}/edit-gp" title="" class="govuk-button govuk-button--secondary">Edit details</a> </div>
+        <h2 class="govuk-heading-m">GP details</h2>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{surgery.name}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{surgery.address|safe}}
+                </dd>
+            </div>
+        </dl>
+        <form action="/resettlement-planning/{{person.index}}/gp-form-print" method="post">
+            <input type="hidden" name="gpid" value="{{surgery.id}}">
+            <button class="govuk-button" title="">Continue</button></form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "authentication/layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<a href="/authentication" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<form action="/probation/" method="post" >
+<h1 class="govuk-heading-xl">Create a new password</h1>
+    <div class="govuk-inset-text">
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Use at least 8 characters</li>
+        <li>Don't use a common password like "password" or "password123"</li>
+      </ul>
+    </div>
+    <div class="govuk-form-group">
+              <label class="govuk-label" for="postcode">
+                Password
+              </label>
+        <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+    </div>
+    <div class="govuk-form-group">
+              <label class="govuk-label" for="postcode">
+                Re-type password
+              </label>
+        <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+    </div>
+    <button type="submit" class="govuk-button">
+        Continue
+    </button>
+</form>
+{% endblock %}

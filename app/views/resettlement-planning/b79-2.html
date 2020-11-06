@@ -1,0 +1,65 @@
+{% extends "resettlement-planning/layout-prisoner.html" %}
+
+{% block pageTitle %}
+Benefits - {{person.name.first}} {{person.name.last}}
+{% endblock %}
+
+
+
+{% block backlink %}
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block maincontent %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Other details</h1>
+    <form action="b79-3" method="post" accept-charset="utf-8">
+      
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="nino">
+          National Insurance Number
+        </label>
+        <span id="nino-hint" class="govuk-hint">
+          For example, ‘QQ 12 34 56 C’
+        </span>
+        <input class="govuk-input govuk-input--width-10" id="nino" 
+        name="b79[nino]" 
+        value="{{data.b79['nino']}}"
+        type="text" aria-describedby="nino-hint">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="release-money">
+          Amount of release money 
+        </label>
+        <span id="release-money-hint" class="govuk-hint">
+          For example, 24.50
+        </span>
+        <span class="govuk-body ttg-input-prefix">&pound;</span>
+        <input class="govuk-input govuk-input--width-5" id="release-money" 
+        name="b79[release-money]" 
+        value="{{data.b79['release-money']}}"
+        type="number" STEP="0.01" aria-describedby="release-money-hint">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="other-money">
+          Amount of other money on release 
+        </label>
+
+        <span id="other-money-hint" class="govuk-hint">
+          For example, 24.50
+        </span>
+        <span class="govuk-body ttg-input-prefix">&pound;</span>
+        <input class="govuk-input govuk-input--width-5" id="other-money" 
+        name="b79[other-money]" 
+        value="{{data.b79['other-money']}}"
+        type="number" STEP="0.01" aria-describedby="other-money-hint">
+      </div>
+
+      <button class="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

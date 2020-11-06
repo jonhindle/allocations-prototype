@@ -1,0 +1,58 @@
+{% extends "resettlement-planning/layout-prisoner.html" %}
+
+{% block pageTitle %}
+Print GP form - {{person.name.first}} {{person.name.last}}
+{% endblock %}
+
+
+
+{% block backlink %}
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block maincontent %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="govuk-heading-m">GP details</h2>
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Name
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{surgery.name}}
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Address
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{surgery.address|safe}}
+                        </dd>
+                    </div>
+                </dl>
+
+        <p class="ttg-print">
+            {% if person.index == 3 %}
+            <a class="ttg-print__link" href="/public/PDF/GMS1-complete.pdf" title="" target="_blank">
+            {% else %}
+            <a class="ttg-print__link" href="https://www.nhs.uk/Servicedirectories/Documents/GMS1.pdf" title="" target="_blank">
+            {% endif %}
+
+
+            <i class="ttg-print__icon"></i>
+            {% if person.index == 3 %}
+            <span class="ttg-print__link-description">Print registration form</span></a>
+            {% else %}
+            <span class="ttg-print__link-description">Print registration form</span></a>
+            {% endif %}
+        </p>
+		<p class="govuk-body"> Get the printed form signed by {{person.name.first}} and send it to the GP practice. </p>
+        <div>
+        <a href="#" class="govuk-button govuk-button--secondary">Choose a different GP</a></div>
+    </div>
+
+</div>
+{% endblock %}

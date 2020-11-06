@@ -1,0 +1,49 @@
+{% extends "resettlement-planning/layout.html" %}
+
+{% block pageTitle %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+
+<h2 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
+<span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h2>
+
+
+<form action="proof-of-id-2" method="post" novalidate>
+    <div class="govuk-form-group govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+        Does {{person.name.first}} have a drivers licence?
+      </h1>
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="id[drivers-licence]-1" name="id[drivers-licence]" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="id[drivers-licence]-1">
+                        Yes
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="id[drivers-licence]-2" name="id[drivers-licence]" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="id[drivers-licence]-2">
+                        No
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <button type="submit" class="govuk-button">
+        Continue
+    </button>
+</form>
+
+
+
+{% endblock %}

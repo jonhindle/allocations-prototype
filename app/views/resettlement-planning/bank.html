@@ -1,0 +1,85 @@
+{% extends "resettlement-planning/layout-prisoner.html" %}
+
+{% block pageTitle %}
+Bank account - {{person.name.first}} {{person.name.last}}
+{% endblock %}
+
+
+
+{% block backlink %}
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block maincontent %}
+
+{% if not person.hasAddress %}
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    {{person.name.first}} will need an address to apply for a bank account
+  </strong>
+</div>
+    <p class="govuk-body"><a class="govuk-link" href="address">Add an address</a></p>
+{% else %}
+
+{% if not person.hasBank %}
+<form action="/resettlement-planning/{{person.index}}/bank" method="post" novalidate>
+    <div class="govuk-form-group govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                Does {{person.name.first}} have a bank account?
+              </h1>
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="has-bank-1" name="has-bank" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="has-bank-1">
+                        Yes
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="has-bank-2" name="has-bank" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="has-bank-2">
+                        No
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <button type="submit" class="govuk-button">
+        Continue
+    </button>
+</form>
+
+{% elseif person.hasBank == "no" %}
+
+        <h2 class="govuk-heading-l">Arrange a basic bank account</h2>
+        <p class="govuk-body-l">You can print a pre-completed form. Once approved, it will be posted to the bank.</p>
+        <p>A bank account is needed for Universal Credit. A basic bank account allows:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>wages, benefits and tax credits to be paid in</li>
+                <li>money to be taken out out at Post Offices and cash machines</li>
+                <li>cheques to be paid in</li>
+                <li>bills to be paid by direct debit</li>
+            </ul>
+        </p>
+        <p>
+            <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            {{person.name.first}} will need to visit the bank within 7 days of release to confirm the release address.
+            </strong>
+            </div>
+        </p>
+        <a href="#" role="button" draggable="false" class="govuk-button">
+        Apply for a bank account
+        </a>
+        
+                
+
+{% endif %}
+{% endif %}
+{% endblock %}

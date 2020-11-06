@@ -1,0 +1,46 @@
+{% extends "probation/layout.html" %}
+
+{% block pageTitle %}
+  Understand licence conditions
+{% endblock %}
+
+
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="">Her Majesty’s Prison & Probation Service</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/prisoner">{{serviceName}}</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link">My convictions</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+	<h1 class="govuk-heading-xl">
+        What are licence conditions?
+      </h1>  	   
+
+	<p>	If you were sentenced to more than 12 months but less than 4 years, you may be released early on licence.</p>
+	<p> Being on licence means you’re still serving a prison sentence but you can live in the community instead of being in prison.</p> 
+	<p>When you’re on licence you have to follow <a href="">conditions</a>. There are standard conditions and there may be extra conditions specific to you. If you break the rules, you’ll have to go back to prison.</p>
+	<p>The licence should have been explained to you at least one week before release. Copies are kept on your prison record and sent to the police.</p>
+	<p>The licence is lawful whether you sign it or not. If you refuse to sign it, the governor will sign to confirm the conditions were read out and explained to you. </p>
+	<p>If you want to complain about any additional licence conditions, speak to your supervising officer. A complaint can be considered by the Prison and Probation Ombudsman. </p>	
+	</p>
+ 
+    </div>
+    
+</div>
+{% endblock %}

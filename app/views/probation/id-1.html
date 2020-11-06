@@ -1,0 +1,86 @@
+{% extends "probation/layout.html" %}
+
+{% block pageTitle %}
+  Get proof of ID
+{% endblock %}
+
+
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="">Her Majesty’s Prison & Probation Service</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/prisoner">{{serviceName}}</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link">My convictions</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+        How to get proof of ID
+      </h1>      
+
+  <p class="govuk-body">To get benefits, or apply for a job, you’ll need photographic evidence to prove who you are, such as:
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>UK passport</li>
+
+        <li>EEA passport</li>
+
+        <li>Residence permit or card</li>
+
+        <li>Immigration status document</li>
+
+        <li>Registration or naturalisation certificate</li>
+
+        <li>UK photo driving licence</li>
+
+        <li>National identity card</li>
+      </ul>
+	  
+	<p class="govuk-body"><a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/704327/acceptable-id-checklist.pdf">Full list of DWP acceptable documents[PDF]</a></p>  
+
+    <h2 class="govuk-heading-l">If you have no photographic ID</h2>
+    
+        <p class="govuk-body">You can apply for a National identity card (CitizenCard) or a provisional driving licence.</p> 
+		
+		
+		<p class="govuk-body govuk-!-font-weight-bold">CitizenCard</p>
+		<p class="govuk-body">CitizenCard is an official UK ID card that you can use to prove who you are when you apply for benefits. It costs £7.50 if you use your probation officer as a referee.</p>
+		<p class="govuk-body">They'll need to register with CitizenCard and countersign a photo of you. Ask them to contact CitizenCard.</p>
+		<p class="govuk-body">You can apply online yourself, but this will cost £15. You'll still need someone to act as a referee.
+
+		<p class="govuk-body"><a href="https://apply.citizencard.com/apply/cc/r2">Apply for CitizenCard online</a></p>
+		<p class="govuk-body govuk-!-font-weight-bold">Provisional driving licence</p>
+		<p class="govuk-body">A provisional driving licence can also be used to prove who you are. It costs £43.</p>
+		<p class="govuk-body"><a href="https://www.gov.uk/apply-first-provisional-driving-licence">Apply for provisional driving licence</a>
+	<h2 class="govuk-heading-l">Other evidence you’ll need</h2>
+
+		<p class="govuk-body">To get benefits, you can use form B79 that was given to you on release. This shows you’ve been discharged from prison and have been advised to claim benefits.</p>
+
+		<p class="govuk-body">You’ll also need another document to prove things you state, such as:</p>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>tenancy agreement</li>
+			<li>up-to-date rent statement</li>
+			<li>wage slip</li>
+			<li>bank statement</li>
+			<li>proof of savings</li>
+			</ul>
+		<p class="govuk-body"><a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/704327/acceptable-id-checklist.pdf">Full list of DWP acceptable documents[PDF]</a></p>	
+		<p class="govuk-body">When you need ID you'll often be asked for one item of 'primary' (photographic) evidence and two items of 'secondary' evidence so it's important to have access to these documents.</p>  
+	</div>
+    
+    </div>
+{% endblock %}

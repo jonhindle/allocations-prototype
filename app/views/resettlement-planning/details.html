@@ -1,0 +1,59 @@
+{% extends "resettlement-planning/layout-prisoner.html" %}
+
+{% block pageTitle %}
+{% endblock %}
+
+
+
+
+
+{% block maincontent %}
+  
+
+<p>Complete the tasks below to help {{person.name.first}} prepare for release and update Probation Services in advance. </p>
+<div class="govuk-grid-row">	
+	<div class="govuk-grid-column-two-thirds">
+		<ul class="app-task-list__items">
+			<li class="app-task-list__item">
+				<a class="app-task-list__task-name govuk-link--no-visited-state" href="address">	Release address
+				</a>
+				{% if person.addressConfirmed %}
+				<strong class="govuk-tag app-task-list__task-completed" id="housing-completed">Completed</strong>
+				{% endif %}
+
+				{% if person.releaseLocation %}
+				<strong class="govuk-tag govuk-tag--warning app-task-list__task-completed">No housing</strong>
+				{% endif %}
+			</li>
+
+ 			<li class="app-task-list__item">
+				<a class="app-task-list__task-name govuk-link--no-visited-state" href="work">
+					Work
+				</a>
+				{% if person.workCompleted == "yes"  %}
+				<strong class="govuk-tag app-task-list__task-completed" id="work-completed">Completed</strong>
+				{% endif %}
+			</li> 
+
+			<li class="app-task-list__item">
+				<a class="app-task-list__task-name govuk-link--no-visited-state" href="benefits-checklist">
+					Benefits
+				</a>
+				{% if person.benefitsComplete == "yes" or person.b79 %}
+				<strong class="govuk-tag app-task-list__task-completed" id="work-completed">Completed</strong>
+				{% endif %}
+			</li>				
+
+			<li class="app-task-list__item">
+				<a class="app-task-list__task-name govuk-link--no-visited-state" href="gp">
+					Register with a GP
+				</a>
+				{% if person.gpid %}
+				<strong class="govuk-tag app-task-list__task-completed" id="gp-completed">Completed</strong>
+				{% endif %}
+			</li>
+		</ul>
+	</div>
+</div>
+        
+{% endblock %}

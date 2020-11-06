@@ -1,0 +1,48 @@
+{% extends "authentication/layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Her Majesty’s Prison & Probation Service</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">{{serviceName}}</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Sign in to {{serviceName}}
+      </h1>
+
+      <h2 class="govuk-heading-m">Sign in</h2>
+      <p>Sign in to your {{serviceName}} to view:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your spent and unspent convictions</li>
+        <li>GPs near you</li>
+		<li>help with benefits</li>
+      </ul>
+
+
+      <p><a class="govuk-button" href="/authentication/sign-in">Sign in</a></p>
+    </div>
+
+    
+  </div>
+{% endblock %}

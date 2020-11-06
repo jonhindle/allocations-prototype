@@ -1,0 +1,60 @@
+{% extends "probation/layout.html" %}
+
+{% block pageTitle %}
+  My convictions
+{% endblock %}
+
+
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="">Her Majesty’s Prison & Probation Service</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/probation">{{serviceName}}</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link">Benefits</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Benefits
+      </h1>
+      <p>If you're not working, it's important to apply for benefits so you have some money.</p>
+      <h2 class="govuk-heading-m">Universal credit</h2>
+
+      <p>Universal Credit is a payment to help with your living costs. It’s paid monthly.</p> 
+      <p> Find out how much you may get using a benefits calculator:</p>
+
+      <ul>
+        <li>
+          <a rel="external" href="https://www.entitledto.co.uk/benefits-calculator/startcalc.aspx?utm_source=BAdviser&amp;utm_medium=referral&amp;utm_campaign=GovUK">entitledto</a></li>
+            <li>
+          <a rel="external" href="https://benefits-calculator.turn2us.org.uk/AboutYou?utm_source=BAdviser&amp;utm_medium=referral&amp;utm_campaign=GovUK">Turn2us</a></li>
+            <li>
+          <a rel="external" href="https://www.betteroffcalculator.co.uk/#/free">Policy in Practice</a></li>
+    </ul>
+
+    <p>You can claim for an advance payment. You'll get some money straight away if your claim is accepted. You'll have to pay it back from future payments. </p>
+
+    <a href="https://www.gov.uk/universal-credit/how-to-claim?step-by-step-nav=7c08bbbf-a1ca-4cf5-850d-d9f2c796c750" class="govuk-button" title="">Set up an account and start claim</a>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+
+    </div>
+  </div>
+{% endblock %}
