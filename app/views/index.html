@@ -10,37 +10,35 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        Through the gate prototypes
+        The GOV.UK Prototype Kit
+        <span class="govuk-caption-xl">{{releaseVersion}}</span>
       </h1>{{releaseVersion | log }}
       <p>
-        <strong class="govuk-tag">Note</strong> This page introduces the prototypes, but doesn't form part of any service
+        This kit lets you rapidly create HTML prototypes of GOV.UK services.
       </p>
-      <hr class="govuk-!-margin-bottom-9 govuk-!-margin-top-7">
 
-      <h2 class="govuk-heading-m">Staff service</h2>
-      <p>Prototype for prison staff and/or probation officers to manage prisoners' resettlement needs before they leave prison.</p>
-      <a href="/resettlement-planning" role="button" draggable="false" class="govuk-button govuk-button--start">
-        Launch prototype
-      </a>
+      <p>
+        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
+      </p>
 
-      <hr class="govuk-!-margin-bottom-9 govuk-!-margin-top-7">
+      <h2 class="govuk-heading-m">About this page</h2>
 
-      <h2 class="govuk-heading-m">Help Leaving Prison</h2>
-      <p>Prototype for prisoners after release.</p>
-      <a href="/probation" role="button" draggable="false" class="govuk-button govuk-button--start">
-        Launch prototype
-      </a>
+      <p>We recommend you add links to your prototype to this page, rather than delete it.
+        You'll find this page in the kit at '/app/views/index.html'.</p>
 
-      <hr class="govuk-!-margin-bottom-9 govuk-!-margin-top-7">
+      <p>You can change the service name by editing the file '/app/config.js'.</p>
 
-      <h2 class="govuk-heading-m">Login</h2>
-      <p>Prototype for Login/register process. Register will need to use a <a href="/authentication/users" class="govuk-link">valid login</a>.</p>
+      <h2 class="govuk-heading-m">Examples and documentation</h2>
 
-      <a href="/authentication" role="button" draggable="false" class="govuk-button govuk-button--start">
-        Launch prototype
-      </a>
-
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="/docs/tutorials-and-examples">Example pages and documentation</a>
+        </li>
+        <li>
+          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
+        </li>
+      </ul>
     </div>
-</div>
+  </div>
 
 {% endblock %}
