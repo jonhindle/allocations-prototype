@@ -1,0 +1,133 @@
+{% extends "layout_moj.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} Prototype - service user
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row govuk-body">
+    <div class="govuk-grid-column-full">
+      {{ govukBackLink({
+        text: "Back",
+        href: "./new-allocations"
+      }) }}
+    </div>
+    {% set serviceUsers = params.serviceUsers %}
+    {% set query = params.query %}
+    {% set serviceUser = '' %}
+    {% set crn = 'undefined' %}
+    {% if query.crn %}
+      {% set crn = query.crn %}
+    {% endif %}
+    {% for user in serviceUsers %}
+      {% if user.crn == crn %}
+        {% set serviceUser = user %}
+      {% endif %}
+    {% endfor %}
+    {% if serviceUser == '' %}
+      <div class="govuk-grid-column-full">
+        Could not identify service user with crn {{ crn }}.
+      </div>
+    {% else %}
+      {% include "./partial/service-user-bar.njk" %}
+      <div class="govuk-grid-column-full">
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        {{ govukSummaryList({
+          classes: 'govuk-summary-list--no-border',
+          rows: [
+            { key: { text: "Receiving from" }, value: { text: serviceUser.receivingFrom } },
+            { key: { text: "Offence" }, value: { text: serviceUser.offence } },
+            { key: { text: "Sentence" }, value: { text: serviceUser.sentence } },
+            { key: { text: "Requirements" }, value: { text: serviceUser.requirements } },
+            { key: { text: "Sentence start" }, value: { text: serviceUser.sentenceStart } },
+            { key: { text: "RSR score" }, value: { text: serviceUser.rsrScore } },
+            { key: { text: "Tier" }, value: { text: serviceUser.tier } },
+            { key: { text: "OGR score / OSP score" }, value: { text: serviceUser.OGRScoreOSPScore } },
+            { key: { text: "Mappa offender" }, value: { text: serviceUser.mappaOffender } },
+            { key: { text: "Public interest definition" }, value: { text: serviceUser.publicInterestDefinition } },
+            { key: { text: "Foreign national" }, value: { text: serviceUser.foreignNational } },
+            { key: { text: "high Rosh" }, value: { text: serviceUser.highRosh } },
+            { key: { text: "Deferred sentence" }, value: { text: serviceUser.deferredSentence } }
+          ]
+        }) }}
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        {% set acceptHtml %}
+          {{ govukButton({
+            text: "Recommended offender managers",
+            href: "./allocate?crn="+crn
+          }) }}
+        {% endset -%}
+        {% set rejectHtml %}
+          {{ govukTextarea({
+            name: "reject-reason",
+            id: "reject-reason",
+            label: {
+              text: "Reason for rejection:",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+          {{ govukButton({
+            text: "Reject",
+            classes: "govuk-button--warning"
+          }) }}
+        {% endset -%}
+
+        {% set transferHtml %}
+          {{ govukTextarea({
+            name: "transfer-reason",
+            id: "transfer-reason",
+            label: {
+              text: "Reason for transfer:",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            }
+          }) }}
+          {{ govukButton({
+            text: "Transfer",
+            classes: "govuk-button--warning"
+          }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          classes: "govuk-radios--small",
+          idPrefix: "serviceUserAction",
+          name: "serviceUserAction",
+          fieldset: {
+            legend: {
+              text: "Action:",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "accept",
+              text: "Accept",
+              conditional: {
+                html: acceptHtml
+              }
+            },
+            {
+              value: "transfer",
+              text: "Transfer",
+              conditional: {
+                html: transferHtml
+              }
+            },
+            {
+              value: "reject",
+              text: "Reject",
+              conditional: {
+                html: rejectHtml
+              }
+            }
+          ]
+        }) }}
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        <a href="./coming-soon" class="govuk-link" >View PSR</a> | <a href="./coming-soon" class="govuk-link" >View CPS pack</a> | <a href="./coming-soon" class="govuk-link" >View assessments</a> | <a href="./coming-soon" class="govuk-link" >View CAS</a>
+      </div>
+    {% endif %}
+    
+  </div>
+{% endblock %}

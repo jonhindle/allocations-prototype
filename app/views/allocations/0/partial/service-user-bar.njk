@@ -1,0 +1,30 @@
+<div class="govuk-grid-column-one-half">
+  {{ govukSummaryList({
+    classes: 'govuk-summary-list--no-border',
+    rows: [
+      { key: { text: "Name" }, value: { text: serviceUser.name } },
+      { key: { text: "CRN" }, value: { text: serviceUser.crn } },
+      { key: { text: "PNC" }, value: { text: serviceUser.pnc } },
+      { key: { text: "Age" }, value: { text: serviceUser.age } },
+      { key: { text: "Gender" }, value: { text: serviceUser.gender } },
+      { key: { text: "Postcode" }, value: { text: serviceUser.postcode } }
+    ]
+  }) }}
+</div>
+<div class="govuk-grid-column-one-half">
+  {% set riskClasses = { High: 'moj-badge--red', Medium: 'moj-badge--bright-purple', Low: 'moj-badge--blue' } %}
+  {% set riskHtml %}
+    {{ mojBadge({
+      text: serviceUser.risks,
+      classes: riskClasses[serviceUser.risks]
+    }) }}
+  {% endset %}
+  {{ govukSummaryList({
+    classes: 'govuk-summary-list--no-border',
+    rows: [
+      { key: { text: "Probabtion status" }, value: { text: serviceUser.probabtionStatus } },
+      { key: { text: "Previous / Current OM" }, value: { text: serviceUser.previousCurrentOM } },
+      { key: { text: "Risks" }, value: { html: riskHtml } }
+    ]
+  }) }}
+</div>

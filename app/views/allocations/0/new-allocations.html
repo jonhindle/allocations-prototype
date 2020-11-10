@@ -1,0 +1,75 @@
+{% extends "layout_moj.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} Prototype - New allocations
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row govuk-body">
+    <div class="govuk-grid-column-full">
+      {% set tableHeadings = [
+        { key: 'name', text: 'Name' },
+        { key: 'postcode', text: 'Postcode' },
+        { key: 'probabtionStatus', text: 'Probabtion status' },
+        { key: 'offence', text: 'Offence' },
+        { key: 'tier', text: 'Tier' },
+        { key: 'receivingFrom', text: 'Receiving from' },
+        { key: 'daysSinceSentence', text: 'Days since sentence' },
+        { key: 'sentenceStart', text: 'Sentence start' }
+      ] %}
+      {% set serviceUsers = params.serviceUsers %}
+      {% set bannerText %}
+        <span style="float:left"><span id="todaysDate"></span> - {{ serviceUsers.length }} Unallocated cases</span>
+        <span style="float:right">Last updated <span id="passedDate"></span></span>
+      {% endset %}
+      {{ mojBanner({
+        type: 'information',
+        html: bannerText,
+        iconFallbackText: 'information'
+      }) }}
+      {% set tableRows = [] %}
+      {% for user in serviceUsers %}
+        {% set tableRow = [] %}
+        {% for heading in tableHeadings %}
+          {% if heading.key == 'name' %}
+            {% set tableRow = (tableRow.push({ html: '<a href="./service-user?crn='+user.crn+'">'+user[heading.key]+'</a>' }), tableRow) %}
+          {% else %}
+            {% set tableRow = (tableRow.push({ text: user[heading.key] }), tableRow) %}
+          {% endif %}
+        {% endfor%}
+        {% set tableRows = (tableRows.push(tableRow), tableRows) %}
+      {% endfor%}
+
+      {% set newIncomingCasesHtml %}
+        {{ govukTable({
+          head: tableHeadings,
+          rows: tableRows
+        }) }}
+      {% endset -%}
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "New incoming cases",
+            id: "new-incoming-cases",
+            panel: {
+              html: newIncomingCasesHtml
+            }
+          },
+          {
+            label: "All allocated cases",
+            id: "all-allocated-cases",
+            panel: {
+              html: "Coming soon..."
+            }
+          }
+        ]
+      }) }}
+    </div>
+  </div>
+  <script>
+    const today = new Date()
+    document.getElementById("todaysDate").innerHTML = (today.toLocaleDateString('en-GB', {day: "numeric", month: "long", year: "numeric"}));
+    document.getElementById("passedDate").innerHTML = (new Date(today.setDate(today.getDate() - 5)).toLocaleDateString('en-GB', {day: "numeric", month: "long", year: "numeric"}));
+  </script>
+{% endblock %}
