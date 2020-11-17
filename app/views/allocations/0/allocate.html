@@ -8,10 +8,8 @@
   {% set serviceUsers = params.serviceUsers %}
   {% set query = params.query %}
   {% set serviceUser = '' %}
-  {% set crn = 'undefined' %}
-  {% if query.crn %}
-    {% set crn = query.crn %}
-  {% endif %}
+  {% set crn = query.crn if query.crn else 'undefined' %}
+  {% set showAllOM = query.showAllOM if query.showAllOM else '' %}
   {% for user in serviceUsers %}
     {% if user.crn == crn %}
       {% set serviceUser = user %}
@@ -35,7 +33,7 @@
       <div class="govuk-grid-column-full">
         {{ govukBackLink({
           text: "Back",
-          href: "./new-allocations"
+          href: "./service-user?crn="+crn
         }) }}
       </div>
       <div class="govuk-grid-column-full">

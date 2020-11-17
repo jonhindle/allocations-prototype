@@ -8,10 +8,7 @@
   {% set serviceUsers = params.serviceUsers %}
   {% set query = params.query %}
   {% set serviceUser = '' %}
-  {% set crn = 'undefined' %}
-  {% if query.crn %}
-    {% set crn = query.crn %}
-  {% endif %}
+  {% set crn = query.crn if query.crn else 'undefined' %}
   {% for user in serviceUsers %}
     {% if user.crn == crn %}
       {% set serviceUser = user %}
