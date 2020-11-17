@@ -4,32 +4,40 @@
   {{ serviceName }} Prototype - service user
 {% endblock %}
 
-{% block content %}
-  <div class="govuk-grid-row govuk-body">
-    <div class="govuk-grid-column-full">
-      {{ govukBackLink({
-        text: "Back",
-        href: "./new-allocations"
-      }) }}
-    </div>
-    {% set serviceUsers = params.serviceUsers %}
-    {% set query = params.query %}
-    {% set serviceUser = '' %}
-    {% set crn = 'undefined' %}
-    {% if query.crn %}
-      {% set crn = query.crn %}
+{% block main %}
+  {% set serviceUsers = params.serviceUsers %}
+  {% set query = params.query %}
+  {% set serviceUser = '' %}
+  {% set crn = 'undefined' %}
+  {% if query.crn %}
+    {% set crn = query.crn %}
+  {% endif %}
+  {% for user in serviceUsers %}
+    {% if user.crn == crn %}
+      {% set serviceUser = user %}
     {% endif %}
-    {% for user in serviceUsers %}
-      {% if user.crn == crn %}
-        {% set serviceUser = user %}
-      {% endif %}
-    {% endfor %}
-    {% if serviceUser == '' %}
+  {% endfor %}
+  {% if serviceUser == '' %}
+    <div class="govuk-width-container govuk-grid-row govuk-body">
+      <div class="govuk-grid-column-full">
+        {{ govukBackLink({
+          text: "Back",
+          href: "./new-allocations"
+        }) }}
+      </div>
       <div class="govuk-grid-column-full">
         Could not identify service user with crn {{ crn }}.
       </div>
-    {% else %}
-      {% include "./partial/service-user-bar.njk" %}
+    </div>
+  {% else %}
+    {% include "./partial/service-user-bar.njk" %}
+    <div class="govuk-width-container govuk-grid-row govuk-body">
+      <div class="govuk-grid-column-full">
+        {{ govukBackLink({
+          text: "Back",
+          href: "./new-allocations"
+        }) }}
+      </div>
       <div class="govuk-grid-column-full">
         <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
         {{ govukSummaryList({
@@ -127,7 +135,7 @@
         <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
         <a href="./coming-soon" class="govuk-link" >View PSR</a> | <a href="./coming-soon" class="govuk-link" >View CPS pack</a> | <a href="./coming-soon" class="govuk-link" >View assessments</a> | <a href="./coming-soon" class="govuk-link" >View CAS</a>
       </div>
-    {% endif %}
-    
-  </div>
+    </div>
+  {% endif %}
 {% endblock %}
+

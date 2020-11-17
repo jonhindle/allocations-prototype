@@ -7,7 +7,7 @@
 {% block content %}
   <div class="govuk-grid-row govuk-body">
     <div class="govuk-grid-column-full">
-      {% set tableHeadings = [
+      {% set newIncomingCases_tableHeadings = [
         { key: 'name', text: 'Name' },
         { key: 'postcode', text: 'Postcode' },
         { key: 'probabtionStatus', text: 'Probabtion status' },
@@ -27,23 +27,65 @@
         html: bannerText,
         iconFallbackText: 'information'
       }) }}
-      {% set tableRows = [] %}
+      {% set newIncomingCases_tableRows = [] %}
       {% for user in serviceUsers %}
-        {% set tableRow = [] %}
-        {% for heading in tableHeadings %}
-          {% if heading.key == 'name' %}
-            {% set tableRow = (tableRow.push({ html: '<a href="./service-user?crn='+user.crn+'">'+user[heading.key]+'</a>' }), tableRow) %}
-          {% else %}
-            {% set tableRow = (tableRow.push({ text: user[heading.key] }), tableRow) %}
-          {% endif %}
-        {% endfor%}
-        {% set tableRows = (tableRows.push(tableRow), tableRows) %}
+        {% if user.currentOM == "" %}
+          {% set tableRow = [] %}
+          {% for heading in newIncomingCases_tableHeadings %}
+            {% if heading.key == 'name' %}
+              {% set tableRow = (tableRow.push({ html: '<a href="./service-user?crn='+user.crn+'">'+user[heading.key]+'</a>' }), tableRow) %}
+            {% else %}
+              {% set tableRow = (tableRow.push({ text: user[heading.key] }), tableRow) %}
+            {% endif %}
+          {% endfor%}
+          {% set newIncomingCases_tableRows = (newIncomingCases_tableRows.push(tableRow), newIncomingCases_tableRows) %}
+        {% endif %}
       {% endfor%}
 
       {% set newIncomingCasesHtml %}
         {{ govukTable({
-          head: tableHeadings,
-          rows: tableRows
+          head: newIncomingCases_tableHeadings,
+          rows: newIncomingCases_tableRows
+        }) }}
+      {% endset -%}
+
+      {% set allAllocatedCases_tableHeadings = [
+        { key: 'name', text: 'SU Name' },
+        { key: 'postcode', text: 'Postcode' },
+        { key: 'tier', text: 'Tier' },
+        { key: 'allocationDate', text: 'Allocation date' },
+        { text: 'OM name' },
+        { text: 'OM grade' }
+      ] %}
+
+      {% set allAllocatedCases_tableRows = [] %}
+      {% for user in serviceUsers %}
+        {% if user.currentOM != "" %}
+          {% set currentProbationPractitioner = '' %}
+          {% for probationPractitioner in probationPractitioners %}
+            {% if probationPractitioner.id == user.currentOM %}
+              {% set currentProbationPractitioner = probationPractitioner %}
+            {% endif %}
+          {% endfor %}
+          {% if currentProbationPractitioner != "" %}
+            {% set tableRow = [] %}
+            {% for heading in allAllocatedCases_tableHeadings %}
+              {% if heading.key == 'name' %}
+                {% set tableRow = (tableRow.push({ html: '<a href="./service-user?crn='+user.crn+'">'+user[heading.key]+'</a>' }), tableRow) %}
+              {% elseif heading.key %}
+                {% set tableRow = (tableRow.push({ text: user[heading.key] }), tableRow) %}
+              {% endif %}
+            {% endfor%}
+            {% set tableRow = (tableRow.push({ text: currentProbationPractitioner.name }, { text: currentProbationPractitioner.grade }), tableRow) %}
+            {% set allAllocatedCases_tableRows = (allAllocatedCases_tableRows.push(tableRow), allAllocatedCases_tableRows) %}
+          {% endif %}
+        {% endif %}
+      {% endfor%}
+
+      {% set allAllocatedCasesHtml %}
+        {{ govukTable({
+          head: allAllocatedCases_tableHeadings,
+          rows: allAllocatedCases_tableRows
         }) }}
       {% endset -%}
 
@@ -60,7 +102,7 @@
             label: "All allocated cases",
             id: "all-allocated-cases",
             panel: {
-              html: "Coming soon..."
+              html: allAllocatedCasesHtml
             }
           }
         ]

@@ -4,42 +4,48 @@
   {{ serviceName }} Prototype - service user
 {% endblock %}
 
-{% block content %}
-  <div class="govuk-grid-row govuk-body">
-    <div class="govuk-grid-column-full">
-      {{ govukBackLink({
-        text: "Back",
-        href: "javascript:history.back()"
-      }) }}
-    </div>
-    {% set serviceUsers = params.serviceUsers %}
-    {% set query = params.query %}
-    {% set serviceUser = '' %}
-    {% set crn = 'undefined' %}
-    {% set showAllOM = query.showAllOM %}
-    {% if query.crn %}
-      {% set crn = query.crn %}
+{% block main %}
+  {% set serviceUsers = params.serviceUsers %}
+  {% set query = params.query %}
+  {% set serviceUser = '' %}
+  {% set crn = 'undefined' %}
+  {% if query.crn %}
+    {% set crn = query.crn %}
+  {% endif %}
+  {% for user in serviceUsers %}
+    {% if user.crn == crn %}
+      {% set serviceUser = user %}
     {% endif %}
-    {% for user in serviceUsers %}
-      {% if user.crn == crn %}
-        {% set serviceUser = user %}
-      {% endif %}
-    {% endfor %}
-    {% if serviceUser == '' %}
+  {% endfor %}
+  {% if serviceUser == '' %}
+    <div class="govuk-width-container govuk-grid-row govuk-body">
+      <div class="govuk-grid-column-full">
+        {{ govukBackLink({
+          text: "Back",
+          href: "./new-allocations"
+        }) }}
+      </div>
       <div class="govuk-grid-column-full">
         Could not identify service user with crn {{ crn }}.
       </div>
-    {% else %}
-      {% include "./partial/service-user-bar.njk" %}
+    </div>
+  {% else %}
+    {% include "./partial/service-user-bar.njk" %}
+    <div class="govuk-width-container govuk-grid-row govuk-body">
       <div class="govuk-grid-column-full">
-        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        {{ govukBackLink({
+          text: "Back",
+          href: "./new-allocations"
+        }) }}
+      </div>
+      <div class="govuk-grid-column-full">
         {% set tableHeadings = [
           { key: 'name', text: 'Name' },
           { key: 'grade', text: 'Grade' },
           { key: 'currentPercentage', text: 'Current %' },
           { key: 'remainingPoints', text: 'Remaining points' },
           { key: 'noOfCases', text: 'No of cases' },
-          { key: 'lastAllocated', text: 'Date last allocated too' },
+          { key: 'lastAllocated', text: 'Date last allocated to' },
           { key: 'allocate', text: 'Allocate' }
         ] %}
         {% set probationPractitioners = params.probationPractitioners %}
@@ -85,7 +91,7 @@
             classes: "govuk-button--secondary"
           }) }}
         {% endif %}
-    {% endif %}
+      </div>
     </div>
-  </div>
+  {% endif %}
 {% endblock %}
