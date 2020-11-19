@@ -7,7 +7,12 @@ const { serviceUsers, probationPractitioners } = require('./views/allocations/0/
 
 router.get('/allocations/0/*', ({ path, query, originalUrl }, res) => {
   console.log(query)
-  res.render(path.substring(1), { query, serviceUsers, probationPractitioners })
+  const now = Date.now()
+  const processedServiceUsers = serviceUsers.map(serviceUser => {
+    return { ...serviceUser, sla: Math.round((new Date(serviceUser.sentenceStart.split('/').reverse().join('-')).getTime()-now)/86400000) }
+  })
+  console.log(JSON.stringify(processedServiceUsers))
+  res.render(path.substring(1), { query, serviceUsers: processedServiceUsers, probationPractitioners })
 })
 
 module.exports = router
