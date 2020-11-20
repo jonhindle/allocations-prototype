@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-  {% if serviceUser == '' %}
+  {% if not serviceUser %}
     <div class="govuk-width-container govuk-grid-row govuk-body">
       <div class="govuk-grid-column-full">
         {{ govukBackLink({
@@ -43,34 +43,53 @@
             { key: { text: "Public interest definition" }, value: { text: serviceUser.publicInterestDefinition } },
             { key: { text: "Foreign national" }, value: { text: serviceUser.foreignNational } },
             { key: { text: "high Rosh" }, value: { text: serviceUser.highRosh } },
-            { key: { text: "Deferred sentence" }, value: { text: serviceUser.deferredSentence } },
-            { key: { text: "Current OM" }, value: { text: probationPractitioner.name }, actions: {
-                items: [
-                  {
-                    href: "/allocations/0/allocate/"+crn,
-                    text: "Change",
-                    visuallyHiddenText: "Current OM"
-                  }
-                ]
-              } }
+            { key: { text: "Deferred sentence" }, value: { text: serviceUser.deferredSentence } }
           ]
         }) }}
         <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
         <form method="post" novalidate>
-          {% set transferReasonErrorMsg = errors["transfer-reason"]|join('.  ') if errors and errors["transfer-reason"] %}
-          {% set transferReasonError = { text: transferReasonErrorMsg } if transferReasonErrorMsg %}
-          {{ govukTextarea({
-            name: "transfer-reason",
-            id: "transfer-reason",
-            errorMessage: transferReasonError,
-            label: {
-              text: "Reason for rejection:",
-              classes: "govuk-label--s",
-              isPageHeading: false
-            }
+          {% set rejectHtml %}
+            {{ govukTextarea({
+              name: "reject-reason",
+              id: "reject-reason",
+              label: {
+                text: "Reason for rejection:",
+                classes: "govuk-label--s",
+                isPageHeading: false
+              }
+            }) }}
+          {% endset -%}
+          {% set serviceUserActionErrorMsg = errors.serviceUserAction|join('.  ') if errors and errors.serviceUserAction %}
+          {% set serviceUserActionError = { text: serviceUserActionErrorMsg } if serviceUserActionErrorMsg %}
+          {{ govukRadios({
+            classes: "govuk-radios--small",
+            idPrefix: "serviceUserAction",
+            name: "serviceUserAction",
+            
+            fieldset: {
+              legend: {
+                text: "Action:",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            errorMessage: serviceUserActionError,
+            items: [
+              {
+                value: "accept",
+                text: "Accept"
+              },
+              {
+                value: "reject",
+                text: "Reject",
+                conditional: {
+                  html: rejectHtml
+                }
+              }
+            ]
           }) }}
           {{ govukButton({
-            text: "Request transfer",
+            text: "Save and continue",
             classes: "govuk-!-margin-right-1"
           }) }}
           {{ govukButton({
