@@ -15,14 +15,16 @@ const getErrorMessages = req => {
 }
 const getUser = (crn, serviceUsers) => {
   const serviceUser = serviceUsers.find(({ crn:userCrn }) => crn === userCrn)
-  console.log(JSON.stringify(serviceUser))
   return { serviceUser, crn }
 }
+const getPractitioner = (findId, probationPractitioners) => {
+  return probationPractitioners.find(({ id }) => id === findId)
+}
+
 const getUserAndPractitioner = (crn, serviceUsers, probationPractitioners) => {
   const { serviceUser } = getUser(crn, serviceUsers)
   if(!serviceUser) return { crn }
-  const { currentOM } = serviceUser
-  const probationPractitioner = probationPractitioners.find(({ id }) => id === currentOM)
+  const probationPractitioner = getPractitioner(serviceUser.currentOM, probationPractitioners)
   return { serviceUser, probationPractitioner, crn }
 }
 
@@ -46,8 +48,9 @@ router.use('*', (req, res, next) => {
       const serviceUser = {...rawServiceUser}
       updateDates(beginningOfTime, serviceUser, [ 'sentenceStart', 'sentenceEnd', 'allocationDate' ])
       serviceUser.sla = Math.round((new Date(serviceUser.sentenceStart).getTime()-today)/86400000)
+      serviceUser.currentOM = data[`${serviceUser.crn}_currentOM`] || serviceUser.currentOM
       return serviceUser
-    })
+    }).filter(({ crn }) => !data[`${crn}_rejected`] )
     locals.probationPractitioners = rawProbationPractitioners.map(rawProbationPractitioner => {
       const probationPractitioner = {...rawProbationPractitioner}
       updateDates(beginningOfTime, probationPractitioner, ['lastAllocated'])
@@ -78,13 +81,16 @@ router.route('/new-service-user/:crn')
   })
   .post([body('serviceUserAction', 'Please select an action').isIn(['accept', 'reject'])],
     (req, res) => {
-      const { body: { serviceUserAction }, params: { crn }, locals: { serviceUsers } } = req
+      const { session: { data }, body: { serviceUserAction }, params: { crn }, locals: { serviceUsers } } = req
       const errors = getErrorMessages(req)
       if (errors) {
         return res.render('allocations/0/new-service-user', { errors, ...getUser(crn, serviceUsers) })
       }
       if(serviceUserAction === 'accept') return res.redirect(`/allocations/0/allocate/${crn}`)
-      if(serviceUserAction === 'reject') return res.redirect(`/allocations/0/new-allocations`)
+      if(serviceUserAction === 'reject') {
+        data[`${crn}_rejected`] = true
+        return res.redirect(`/allocations/0/new-allocations`)
+      }
     }
   )
 
@@ -94,11 +100,18 @@ router.route('/allocate/:crn')
   })
   .post([body('allocate-OM', 'Please select an officer').isInt()],
     (req, res) => {
-      const { params: { crn }, query, locals: {serviceUsers, probationPractitioners} } = req
+      const { body, session: { data },params: { crn }, query, locals: {serviceUsers, probationPractitioners} } = req
       const errors = getErrorMessages(req)
+      const { serviceUser } = getUser(crn, serviceUsers)
       if (errors) {
-        return res.render('allocations/0/allocate', { errors, query, probationPractitioners, ...getUser(crn, serviceUsers) })
+        return res.render('allocations/0/allocate', { errors, query, probationPractitioners, crn, serviceUser })
       }
+      const allocateOM = body['allocate-OM']
+      //const probationPractitioner = getPractitioner(allocateOM, probationPractitioners)
+      serviceUser.previousCurrentOM = serviceUser.currentOM
+      serviceUser.currentOM = allocateOM
+      //probationPractitioner.lastAllocated = 
+      data[`${crn}_currentOM`] = allocateOM
       return res.redirect(`/allocations/0/new-allocations`)
     }
   )

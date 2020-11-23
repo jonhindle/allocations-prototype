@@ -16,7 +16,7 @@
         { key: 'offence', text: 'Offence' },
         { key: 'tier', text: 'Indicative tier' },
         { key: 'receivingFrom', text: 'Receiving from' },
-        { key: 'sla', text: 'SLA' }
+        { key: 'sla', text: 'Due (days)' }
       ] %}
       {% set serviceUsers = params.serviceUsers %}
       {% set newServiceUsers = serviceUsers|rejectattr("currentOM", "") %}

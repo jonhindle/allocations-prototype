@@ -55,6 +55,8 @@
                     </div>
                   {% endset %}
                   {% set tableRow = (tableRow.push({ html: allocateButtonHtml }), tableRow) %}
+                {% elseif heading.key == 'currentPercentage' %}
+                  {% set tableRow = (tableRow.push({ text: probationPractitioner.currentPercentage+"%" }), tableRow) %}
                 {% else %}
                   {% set tableRow = (tableRow.push({ text: probationPractitioner[heading.key] }), tableRow) %}
                 {% endif %}
