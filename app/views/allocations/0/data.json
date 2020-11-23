@@ -7,7 +7,7 @@
       "currentPercentage": 89,
       "remainingPoints": 312,
       "noOfCases": 18,
-      "lastAllocated": "11/11/2020"
+      "lastAllocated": -2
     },
     {
       "name": "Pauline Hollywell",
@@ -16,7 +16,7 @@
       "currentPercentage": 105,
       "remainingPoints": 139,
       "noOfCases": 28,
-      "lastAllocated": "01/11/2020"
+      "lastAllocated": -20
     },
     {
       "name": "Barry Cabana",
@@ -25,7 +25,7 @@
       "currentPercentage": 95,
       "remainingPoints": 156,
       "noOfCases": 25,
-      "lastAllocated": "31/11/2020"
+      "lastAllocated": -1
     },
     {
       "name": "Maria Bury",
@@ -34,7 +34,7 @@
       "currentPercentage": 110,
       "remainingPoints": 98,
       "noOfCases": 32,
-      "lastAllocated": "28/11/2020"
+      "lastAllocated": -3
     },
     {
       "name": "Camilla Horace",
@@ -43,7 +43,7 @@
       "currentPercentage": 95,
       "remainingPoints": 156,
       "noOfCases": 20,
-      "lastAllocated": "28/11/2020"
+      "lastAllocated": -3
     }
   ],
   "serviceUsers": [ 
@@ -55,7 +55,7 @@
       "age": 52,
       "gender": "male",
       "currentOM": 1,
-      "allocationDate": "30/11/2020",
+      "allocationDate": -3,
       "previousCurrentOM":"",
       "risks": "Medium", 
       "sentence": "",
@@ -72,8 +72,8 @@
       "tier": "C2",
       "receivingFrom": "Community",
       "daysSinceSentence": "2",
-      "sentenceStart": "20/11/2020",
-      "sentenceEnd": "28/11/2021"
+      "sentenceStart": -4,
+      "sentenceEnd": 365
     },
     { 
       "crn": "J678912",
@@ -83,7 +83,7 @@
       "age": 26,
       "gender": "male",
       "currentOM": 2,
-      "allocationDate": "31/11/2020",
+      "allocationDate": -3,
       "previousCurrentOM":"",
       "risks": "Low", 
       "sentence": "",
@@ -100,8 +100,8 @@
       "tier": "B2",
       "receivingFrom": "Resettlement",
       "daysSinceSentence": "1",
-      "sentenceStart": "21/11/2020",
-      "sentenceEnd": "30/7/2021"
+      "sentenceStart": -5,
+      "sentenceEnd": 50
     },
     { 
       "crn": "J678913",
@@ -111,7 +111,7 @@
       "age": 72,
       "gender": "female",
       "currentOM": 3,
-      "allocationDate": "29/11/2020",
+      "allocationDate": -1,
       "previousCurrentOM":"",
       "risks": "High", 
       "sentence": "",
@@ -128,8 +128,8 @@
       "tier": "B2",
       "receivingFrom": "Community",
       "daysSinceSentence": "3",
-      "sentenceStart": "19/11/2020",
-      "sentenceEnd": "30/11/2021"
+      "sentenceStart": -3,
+      "sentenceEnd": 120
     },
     { 
       "crn": "J678914",
@@ -139,7 +139,7 @@
       "age": 34,
       "gender": "female",
       "currentOM": 4,
-      "allocationDate": "30/11/2020",
+      "allocationDate": -20,
       "previousCurrentOM":"",
       "risks": "Low", 
       "sentence": "",
@@ -156,8 +156,8 @@
       "tier": "C2",
       "receivingFrom": "Community",
       "daysSinceSentence": "2",
-      "sentenceStart": "30/11/2020",
-      "sentenceEnd": "15/06/2021"
+      "sentenceStart": -3,
+      "sentenceEnd": 60
     },
     { 
       "crn": "J678915",
@@ -184,8 +184,8 @@
       "tier": "C2",
       "receivingFrom": "Community",
       "daysSinceSentence": "2",
-      "sentenceStart": "19/11/2020",
-      "sentenceEnd": "28/11/2021"
+      "sentenceStart": 1,
+      "sentenceEnd": 90
     },
     { 
       "crn": "J678916",
@@ -212,8 +212,8 @@
       "tier": "B2",
       "receivingFrom": "Resettlement",
       "daysSinceSentence": "1",
-      "sentenceStart": "21/11/2020",
-      "sentenceEnd": "30/7/2021"
+      "sentenceStart": 3,
+      "sentenceEnd": 120
     },
     { 
       "crn": "J678917",
@@ -240,8 +240,8 @@
       "tier": "B2",
       "receivingFrom": "Community",
       "daysSinceSentence": "3",
-      "sentenceStart": "20/11/2020",
-      "sentenceEnd": "30/11/2021"
+      "sentenceStart": 3,
+      "sentenceEnd": 365
     },
     { 
       "crn": "J6789108",
@@ -268,8 +268,8 @@
       "tier": "C2",
       "receivingFrom": "Community",
       "daysSinceSentence": "2",
-      "sentenceStart": "22/11/2020",
-      "sentenceEnd": "15/06/2021"
+      "sentenceStart": 4,
+      "sentenceEnd": 180
     }
   ]
 }

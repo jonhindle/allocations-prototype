@@ -42,8 +42,8 @@ C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.
       {% endfor%}
 
       {% set bannerText %}
-        <span style="float:left"><span id="todaysDate"></span> - {{ newIncomingCases_tableRows.length }} Unallocated cases</span>
-        <span style="float:right">Last updated <span id="passedDate"></span></span>
+        <span style="float:left">{{ todaysDate }} - {{ newIncomingCases_tableRows.length }} Unallocated cases</span>
+        <span style="float:right">Last updated {{ lastUpdateDate }}</span>
       {% endset %}
       {{ mojBanner({
         type: 'information',
@@ -117,9 +117,4 @@ C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.
       }) }}
     </div>
   </div>
-  <script>
-    const today = new Date()
-    document.getElementById("todaysDate").innerHTML = (today.toLocaleDateString('en-GB', {day: "numeric", month: "long", year: "numeric"}));
-    document.getElementById("passedDate").innerHTML = (new Date(today.setDate(today.getDate() - 5)).toLocaleDateString('en-GB', {day: "numeric", month: "long", year: "numeric"}));
-  </script>
 {% endblock %}
