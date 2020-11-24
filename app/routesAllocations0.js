@@ -66,12 +66,13 @@ router.route('/service-user/:crn')
   })
   .post([body('transfer-reason', 'Please give reasons for transfer request').notEmpty()],
     (req, res) => {
-      const { params: { crn }, locals: { serviceUsers, probationPractitioners } } = req
+      const { session: { data }, params: { crn }, locals: { serviceUsers, probationPractitioners } } = req
       const errors = getErrorMessages(req)
       if (errors) {
         return res.render('allocations/0/service-user', { errors, ...getUserAndPractitioner(crn, serviceUsers, probationPractitioners) })
       }
-      return res.redirect(`/allocations/0/new-allocations`)
+      data[`${crn}_transferred`] = true
+      return res.redirect(`/allocations/0/success/${crn}`)
     }
   )
 
@@ -128,7 +129,7 @@ router.get('*', ({ session: { data }, path, query, locals: {serviceUsers, probat
     return new Date(current) > new Date(lastAllocated) ? current : lastAllocated
   })
   const lastUpdateDate = new Date(lastAllocated).toLocaleDateString('en-GB', {day: "numeric", month: "long", year: "numeric"})
-  res.render(`allocations/0${path}`, { query, serviceUsers: serviceUsers.filter(({ crn }) => !data[`${crn}_rejected`] ), probationPractitioners, todaysDate, lastUpdateDate })
+  res.render(`allocations/0${path}`, { query, serviceUsers: serviceUsers.filter(({ crn }) => !data[`${crn}_rejected`] && !data[`${crn}_transferred`]), probationPractitioners, todaysDate, lastUpdateDate })
 })
 
 module.exports = router

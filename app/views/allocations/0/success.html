@@ -13,15 +13,16 @@
       }) }}
     </div>
   </div>
-  {% if data[crn+'_rejected'] %}
-    {% set titleText = 'Case rejected' %}
+  {% if data[crn+'_rejected'] or data[crn+'_transferred'] %}
+    {% set actionType = 'rejected' if data[crn+'_rejected'] else 'transferred' %}
+    {% set titleText = 'Case '+actionType %}
     {% set bodyText %}
-      <div>You have rejected the following case</div>
+      <div>You have {{ actionType }} the following case</div>
       <strong>{{ serviceUser.name }}</strong>
       <strong>CRN: {{ crn }}</strong>
     {% endset %}
   {% else %}
-    {% set titleText = 'Case accepted' %}
+    {% set titleText = 'Case allocated' %}
     {% set bodyText %}
       <div>You have accepted the following case</div>
       <strong>{{ serviceUser.name }}</strong> 
