@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { body, validationResult } = require('express-validator')
-const { serviceUsers: rawServiceUsers, probationPractitioners: rawProbationPractitioners } = require('./views/allocations/0/data.json')
+const generateData = require('./data/generateData')
 
 const today = Date.now()
 
@@ -28,80 +28,74 @@ const getUserAndPractitioner = (crn, serviceUsers, probationPractitioners) => {
   return { serviceUser, probationPractitioner, crn }
 }
 
-const updateDate = (beginningOfTime, ob, param) => {
-  const updatedDate = (Number.isInteger(ob[param]) && ob[param] != 0 ? new Date(beginningOfTime+(ob[param]*86400000)) : new Date(beginningOfTime))
-  ob[param] = `${updatedDate.getDate()} ${updatedDate.toLocaleDateString('en-GB', {month: "short"})} ${updatedDate.getFullYear()}`
-
-}
-const updateDates = (beginningOfTime, ob, params) => params.forEach(param => updateDate(beginningOfTime, ob, param))
-
 router.use('*', (req, res, next) => {
-    if(!req.locals) req.locals = {}
-    next()
-  },({ session: { data }, locals }, res, next) => {
-    if( Object.keys(data).length == 0 ) {
+    const { session: { data }, originalUrl, protocol } = req
+    if( Object.keys(data).length == 0 || !data.serviceUsers ) {
       console.log(`**** Resetting all session data ****`)
       data.beginningOfTime = today
+      const { serviceUsers, probationPractitioners } = generateData()
+      data.serviceUsers = serviceUsers
+      data.probationPractitioners = probationPractitioners
     }
-    const { beginningOfTime } = data
-    locals.serviceUsers = rawServiceUsers.map(rawServiceUser => {
-      const serviceUser = {...rawServiceUser}
-      updateDates(beginningOfTime, serviceUser, [ 'sentenceStart', 'sentenceEnd', 'allocationDate' ])
-      serviceUser.sla = Math.round((new Date(serviceUser.sentenceStart).getTime()-today)/86400000)
-      serviceUser.currentOM = data[`${serviceUser.crn}_currentOM`] || serviceUser.currentOM
-      return serviceUser
-    })
-    locals.probationPractitioners = rawProbationPractitioners.map(rawProbationPractitioner => {
-      const probationPractitioner = {...rawProbationPractitioner}
-      updateDates(beginningOfTime, probationPractitioner, ['lastAllocated'])
-      return probationPractitioner
-    })
+    const currentPageUrl = `${protocol}://${req.get('host')}${originalUrl}`
+    if(data.originalUrl !== currentPageUrl){
+      data.back = data.originalUrl || '/'
+      data.originalUrl = currentPageUrl
+    }
     next()
   }
 )
 
+router.get('/practitioner/:id',({ session: { data: { serviceUsers, probationPractitioners } }, params: { id } }, res) => {
+    res.render('allocations/0/practitioner', { 
+      probationPractitioner: getPractitioner(id, probationPractitioners), 
+      currentServiceUsers: serviceUsers.filter( ({ currentOM }) => currentOM == id),
+      previousServiceUsers: serviceUsers.filter( ({ previousCurrentOM }) => previousCurrentOM == id)
+    })
+  })
+
 router.route('/service-user/:crn')
-  .get(({ params: { crn }, locals: { serviceUsers, probationPractitioners } }, res) => {
+  .get(({ session: { data: { serviceUsers, probationPractitioners } }, params: { crn } }, res) => {
     res.render('allocations/0/service-user', { ...getUserAndPractitioner(crn, serviceUsers, probationPractitioners) })
   })
   .post([body('transfer-reason', 'Please give reasons for transfer request').notEmpty()],
     (req, res) => {
-      const { session: { data }, params: { crn }, locals: { serviceUsers, probationPractitioners } } = req
+      const { session: { data: { serviceUsers, probationPractitioners } }, params: { crn } } = req
       const errors = getErrorMessages(req)
       if (errors) {
         return res.render('allocations/0/service-user', { errors, ...getUserAndPractitioner(crn, serviceUsers, probationPractitioners) })
       }
-      data[`${crn}_transferred`] = true
+      getUser(crn, serviceUsers).serviceUser.transferred = true
       return res.redirect(`/allocations/0/success/${crn}`)
     }
   )
 
 router.route('/new-service-user/:crn')
-  .get(({ params: { crn }, locals: { serviceUsers } }, res) => {
+  .get(({ session: { data: { serviceUsers } }, params: { crn } }, res) => {
     res.render('allocations/0/new-service-user', { ...getUser(crn, serviceUsers) })
   })
   .post([body('serviceUserAction', 'Please select an action').isIn(['accept', 'reject'])],
     (req, res) => {
-      const { session: { data }, body: { serviceUserAction }, params: { crn }, locals: { serviceUsers } } = req
+      const { session: { data }, body: { serviceUserAction }, params: { crn } } = req
       const errors = getErrorMessages(req)
       if (errors) {
-        return res.render('allocations/0/new-service-user', { errors, ...getUser(crn, serviceUsers) })
+        return res.render('allocations/0/new-service-user', { errors, ...getUser(crn, data.serviceUsers) })
       }
       if(serviceUserAction === 'accept') return res.redirect(`/allocations/0/allocate/${crn}`)
       if(serviceUserAction === 'reject') {
-        data[`${crn}_rejected`] = true
+        getUser(crn, data.serviceUsers).serviceUser.rejected = true
         return res.redirect(`/allocations/0/success/${crn}`)
       }
     }
   )
 
 router.route('/allocate/:crn')
-  .get(({ params: { crn }, query, locals: { serviceUsers, probationPractitioners } }, res) => {
+  .get(({ session: { data: { serviceUsers, probationPractitioners } }, params: { crn }, query }, res) => {
     res.render('allocations/0/allocate', { query, probationPractitioners, ...getUser(crn, serviceUsers) })
   })
   .post([body('allocate-OM', 'Please select an officer').isInt()],
     (req, res) => {
-      const { body, session: { data }, params: { crn }, query, locals: {serviceUsers, probationPractitioners} } = req
+      const { body,  session: { data: { serviceUsers, probationPractitioners } }, params: { crn }, query } = req
       const errors = getErrorMessages(req)
       const { serviceUser } = getUser(crn, serviceUsers)
       if (errors) {
@@ -109,27 +103,26 @@ router.route('/allocate/:crn')
       }
       const allocateOM = body['allocate-OM']
       //const probationPractitioner = getPractitioner(allocateOM, probationPractitioners)
-      serviceUser.previousCurrentOM = serviceUser.currentOM
+      serviceUser.previousCurrentOM = serviceUser.currentOM || serviceUser.previousCurrentOM
       serviceUser.currentOM = allocateOM
       //probationPractitioner.lastAllocated = 
-      data[`${crn}_currentOM`] = allocateOM
       return res.redirect(`/allocations/0/success/${crn}`)
     }
   )
 
-router.get('/success/:crn', ({ params: { crn }, session: { data }, query, locals: { serviceUsers, probationPractitioners } }, res) => {
-  if(data[`${crn}_rejected`]) return res.render('allocations/0/success', { query, ...getUser(crn, serviceUsers) })
-  console.log(JSON.stringify(getUserAndPractitioner(crn, serviceUsers, probationPractitioners)))
-  return res.render('allocations/0/success', { query, ...getUserAndPractitioner(crn, serviceUsers, probationPractitioners) })
+router.get('/success/:crn', ({ params: { crn }, session: { data: { serviceUsers, probationPractitioners } }, query }, res) => {
+  const { serviceUser } = getUser(crn, serviceUsers)
+  if(serviceUser.rejected) return res.render('allocations/0/success', { query, crn, serviceUser })
+  return res.render('allocations/0/success', { query, serviceUser, crn, probationPractitioner: getPractitioner(serviceUser.currentOM, probationPractitioners) })
 })
 
-router.get('*', ({ session: { data }, path, query, locals: {serviceUsers, probationPractitioners} }, res) => {
+router.get('*', ({ session: { data: { probationPractitioners, serviceUsers } }, path, query }, res) => {
   const todaysDate = new Date(today).toLocaleDateString('en-GB', {day: "numeric", month: "long", year: "numeric"})
   const lastAllocated = probationPractitioners.reduce((current, { lastAllocated = 0 }) => {
     return new Date(current) > new Date(lastAllocated) ? current : lastAllocated
   })
   const lastUpdateDate = new Date(lastAllocated).toLocaleDateString('en-GB', {day: "numeric", month: "long", year: "numeric"})
-  res.render(`allocations/0${path}`, { query, serviceUsers: serviceUsers.filter(({ crn }) => !data[`${crn}_rejected`] && !data[`${crn}_transferred`]), probationPractitioners, todaysDate, lastUpdateDate })
+  res.render(`allocations/0${path}`, { query, serviceUsers: serviceUsers.filter(({ rejected, transferred }) => !rejected && !transferred), todaysDate, lastUpdateDate, probationPractitioners })
 })
 
 module.exports = router

@@ -13,8 +13,8 @@
       }) }}
     </div>
   </div>
-  {% if data[crn+'_rejected'] or data[crn+'_transferred'] %}
-    {% set actionType = 'rejected' if data[crn+'_rejected'] else 'transferred' %}
+  {% if serviceUser.rejected or serviceUser.transferred %}
+    {% set actionType = 'rejected' if serviceUser.rejected else 'transferred' %}
     {% set titleText = 'Case '+actionType %}
     {% set bodyText %}
       <div>You have {{ actionType }} the following case</div>

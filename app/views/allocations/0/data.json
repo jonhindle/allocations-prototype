@@ -4,15 +4,15 @@
       "name": "Donald Turnip",
       "id": 5,
       "grade": "PO",
-      "currentPercentage": 89,
-      "remainingPoints": 312,
-      "noOfCases": 18,
+      "currentPercentage": 96.2,
+      "remainingPoints": 83,
+      "noOfCases": 24,
       "lastAllocated": -2
     },
     {
       "name": "Pauline Hollywell",
       "id": 4,
-      "grade": "PO",
+      "grade": "TPO",
       "currentPercentage": 105,
       "remainingPoints": 139,
       "noOfCases": 28,
@@ -21,7 +21,7 @@
     {
       "name": "Barry Cabana",
       "id": 3,
-      "grade": "PO",
+      "grade": "PSO",
       "currentPercentage": 95,
       "remainingPoints": 156,
       "noOfCases": 25,
@@ -31,9 +31,9 @@
       "name": "Maria Bury",
       "id": 2,
       "grade": "PO",
-      "currentPercentage": 110,
-      "remainingPoints": 98,
-      "noOfCases": 32,
+      "currentPercentage": 135,
+      "remainingPoints": -762,
+      "noOfCases": 36,
       "lastAllocated": -3
     },
     {
@@ -41,8 +41,8 @@
       "id": 1,
       "grade": "PO",
       "currentPercentage": 95,
-      "remainingPoints": 156,
-      "noOfCases": 20,
+      "remainingPoints": 83,
+      "noOfCases": 26,
       "lastAllocated": -3
     }
   ],

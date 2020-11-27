@@ -1,0 +1,33 @@
+{% extends "layout_moj.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} Prototype - probation practitioner
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container govuk-grid-row govuk-body">
+  <div class="govuk-grid-column-full">
+    {{ govukBackLink({
+      text: "Back",
+      href: data.back
+    }) }}
+  </div>
+  {% if not probationPractitioner %}
+      <div class="govuk-grid-column-full">
+        Could not identify probation practitioner with id {{ id }}.
+      </div>
+    </div>
+  {% else %}
+    {{ govukSummaryList({
+      classes: 'govuk-summary-list--no-border',
+      rows: [
+        { key: { text: "Name" }, value: { text: probationPractitioner.name } },
+        { key: { text: "grade" }, value: { text: probationPractitioner.grade } },
+        { key: { text: "currentPercentage" }, value: { text: probationPractitioner.currentPercentage } },
+        { key: { text: "remainingPoints" }, value: { text: probationPractitioner.remainingPoints } },
+        { key: { text: "noOfCases" }, value: { text: probationPractitioner.noOfCases } },
+        { key: { text: "lastAllocated" }, value: { text: probationPractitioner.lastAllocated } }
+      ]
+    }) }}
+  {% endif %}
+{% endblock %}

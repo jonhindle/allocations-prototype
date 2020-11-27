@@ -10,7 +10,7 @@
       <div class="govuk-grid-column-full">
         {{ govukBackLink({
           text: "Back",
-          href: "/allocations/0/new-allocations"
+          href: "/allocations/0/new-allocations#all-allocated-cases"
         }) }}
       </div>
       <div class="govuk-grid-column-full">
@@ -23,7 +23,7 @@
       <div class="govuk-grid-column-full">
         {{ govukBackLink({
           text: "Back",
-          href: "/allocations/0/new-allocations"
+          href: "/allocations/0/new-allocations#all-allocated-cases"
         }) }}
       </div>
       <div class="govuk-grid-column-full">
@@ -31,20 +31,20 @@
         {{ govukSummaryList({
           classes: 'govuk-summary-list--no-border',
           rows: [
-            { key: { text: "Receiving from" }, value: { text: serviceUser.receivingFrom } },
-            { key: { text: "Offence" }, value: { text: serviceUser.offence } },
-            { key: { text: "Sentence" }, value: { text: serviceUser.sentence } },
-            { key: { text: "Requirements" }, value: { text: serviceUser.requirements } },
-            { key: { text: "Sentence start" }, value: { text: serviceUser.sentenceStart } },
-            { key: { text: "RSR score" }, value: { text: serviceUser.rsrScore } },
-            { key: { text: "Tier" }, value: { text: serviceUser.tier } },
-            { key: { text: "OGR score / OSP score" }, value: { text: serviceUser.OGRScoreOSPScore } },
-            { key: { text: "Mappa offender" }, value: { text: serviceUser.mappaOffender } },
-            { key: { text: "Public interest definition" }, value: { text: serviceUser.publicInterestDefinition } },
-            { key: { text: "Foreign national" }, value: { text: serviceUser.foreignNational } },
-            { key: { text: "High RoSH" }, value: { text: serviceUser.highRosh } },
-            { key: { text: "Deferred sentence" }, value: { text: serviceUser.deferredSentence } },
-            { key: { text: "Current OM" }, value: { text: probationPractitioner.name }, actions: {
+            { key: { text: "Receiving from" }, value: { text: serviceUser.template.receivingFrom } },
+            { key: { text: "Offence" }, value: { text: serviceUser.template.offence } },
+            { key: { text: "Sentence" }, value: { text: serviceUser.template.sentence } },
+            { key: { text: "Requirements" }, value: { text: serviceUser.template.requirements } },
+            { key: { text: "Sentence start" }, value: { text: serviceUser.dates.sentenceStart } },
+            { key: { text: "RSR score" }, value: { text: serviceUser.template.RSR } },
+            { key: { text: "Tier" }, value: { text: serviceUser.template.tier } },
+            { key: { text: "OGR score / OSP score" }, value: { text: serviceUser.template.OGRS } },
+            { key: { text: "Mappa offender" }, value: { text: serviceUser.template.MAPPA } },
+            { key: { text: "Public interest definition" }, value: { text: serviceUser.template.PI } },
+            { key: { text: "Foreign national" }, value: { text: serviceUser.template.FNO } },
+            { key: { text: "High RoSH" }, value: { text: serviceUser.template.highRoSH } },
+            { key: { text: "Deferred sentence" }, value: { text: serviceUser.template.deferredSentence } },
+            { key: { text: "Current OM" }, value: { html: '<a href="/allocations/0/practitioner/'+probationPractitioner.id+'">'+probationPractitioner.name+'</a>' }, actions: {
                 items: [
                   {
                     href: "/allocations/0/allocate/"+crn,
