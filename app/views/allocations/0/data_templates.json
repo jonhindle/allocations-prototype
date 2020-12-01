@@ -6,45 +6,60 @@
       "id": 5,
       "grade": "PO",
       "currentPercentage": 96.2,
-      "remainingPoints": 83,
+      "pointsAvailable": 2176,
+      "pointsUsed": 2093,
       "noOfCases": 24,
-      "lastAllocated": "2020/11/18"
+      "lastAllocated": "2020/11/18",
+      "hoursContracted": 37,
+      "hoursReduction": 0
     },
     {
       "name": "Pauline Hollywell",
       "id": 4,
       "grade": "TPO",
       "currentPercentage": 105,
-      "remainingPoints": 139,
+      "pointsAvailable": 2176,
+      "pointsUsed": 2037,
       "noOfCases": 28,
-      "lastAllocated": "2020/11/1"
+      "lastAllocated": "2020/11/1",
+      "hoursContracted": 37,
+      "hoursReduction": 0
     },
     {
       "name": "Barry Cabana",
       "id": 3,
       "grade": "PSO",
       "currentPercentage": 95,
-      "remainingPoints": 156,
+      "pointsAvailable": 2176,
+      "pointsUsed": 2020,
       "noOfCases": 25,
-      "lastAllocated": "2020/11/19"
+      "lastAllocated": "2020/11/19",
+      "hoursContracted": 37,
+      "hoursReduction": 0
     },
     {
       "name": "Maria Bury",
       "id": 2,
       "grade": "PO",
       "currentPercentage": 135,
-      "remainingPoints": -762,
+      "pointsAvailable": 2176,
+      "pointsUsed": 2938,
       "noOfCases": 36,
-      "lastAllocated": "2020/11/17"
+      "lastAllocated": "2020/11/17",
+      "hoursContracted": 37,
+      "hoursReduction": 0
     },
     {
       "name": "Camilla Horace",
       "id": 1,
       "grade": "PO",
       "currentPercentage": 95,
-      "remainingPoints": 83,
+      "pointsAvailable": 2176,
+      "pointsUsed": 2093,
       "noOfCases": 26,
-      "lastAllocated": "2020/11/17"
+      "lastAllocated": "2020/11/17",
+      "hoursContracted": 37,
+      "hoursReduction": 0
     }
   ],
   "forenames": ["James", "John", "Robert", "Michael", "William", "David", "Richard", "Joseph", "Thomas", "Charles", "Christopher", "Daniel", "Matthew", "Anthony", "Donald", "Mark", "Paul", "Steven", "Andrew", "Kenneth", "Joshua", "Kevin", "Brian", "George", "Edward", "Ronald", "Timothy", "Jason", "Jeffrey", "Ryan", "Jacob", "Gary", "Nicholas", "Eric", "Jonathan", "Stephen", "Larry", "Justin", "Scott", "Brandon", "Benjamin", "Samuel", "Frank", "Gregory", "Raymond", "Alexander", "Patrick", "Jack", "Dennis", "Jerry", "Tyler", "Aaron", "Jose", "Henry", "Adam", "Douglas", "Nathan", "Peter", "Zachary", "Kyle", "Walter", "Harold", "Jeremy", "Ethan", "Carl", "Keith", "Roger", "Gerald", "Christian", "Terry", "Sean", "Arthur", "Austin", "Noah", "Lawrence", "Jesse", "Joe", "Bryan", "Billy", "Jordan", "Albert", "Dylan", "Bruce", "Willie", "Gabriel", "Alan", "Juan", "Logan", "Wayne", "Ralph", "Roy", "Eugene", "Randy", "Vincent", "Russell", "Louis", "Philip", "Bobby", "Johnny", "Bradley"],

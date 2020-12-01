@@ -57,6 +57,9 @@
                   {% set tableRow = (tableRow.push({ html: allocateButtonHtml }), tableRow) %}
                 {% elseif heading.key == 'currentPercentage' %}
                   {% set tableRow = (tableRow.push({ text: probationPractitioner.currentPercentage+"%" }), tableRow) %}
+                {% elseif heading.key == 'remainingPoints' %}
+                  {% set remainingPoints=probationPractitioner.pointsAvailable-probationPractitioner.pointsUsed %}
+                  {% set tableRow = (tableRow.push({ html:'<span class="'+('govuk-error-message govuk-!-font-weight-regular' if remainingPoints < 0 else '')+'">'+remainingPoints+'</span>' }), tableRow) %}
                 {% elseif heading.key == 'name' %}
                   {% set tableRow = (tableRow.push({ html: '<a href="../practitioner/'+probationPractitioner.id+'">'+probationPractitioner.name+'</a>' }), tableRow) %}
                 {% else %}

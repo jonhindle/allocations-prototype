@@ -18,15 +18,20 @@
       </div>
     </div>
   {% else %}
+    {% set remainingPoints=probationPractitioner.pointsAvailable-probationPractitioner.pointsUsed %}
     {{ govukSummaryList({
       classes: 'govuk-summary-list--no-border',
       rows: [
         { key: { text: "Name" }, value: { text: probationPractitioner.name } },
-        { key: { text: "grade" }, value: { text: probationPractitioner.grade } },
-        { key: { text: "currentPercentage" }, value: { text: probationPractitioner.currentPercentage } },
-        { key: { text: "remainingPoints" }, value: { text: probationPractitioner.remainingPoints } },
-        { key: { text: "noOfCases" }, value: { text: probationPractitioner.noOfCases } },
-        { key: { text: "lastAllocated" }, value: { text: probationPractitioner.lastAllocated } }
+        { key: { text: "Grade" }, value: { text: probationPractitioner.grade } },
+        { key: { text: "Current percentage" }, value: { text: probationPractitioner.currentPercentage } },
+        { key: { text: "Points available" }, value: { text: probationPractitioner.pointsAvailable } },
+        { key: { text: "Points used" }, value: { text: probationPractitioner.pointsUsed } },
+        { key: { text: "Remaining points" }, value: { html:'<span class="'+('govuk-error-message govuk-!-font-weight-regular' if remainingPoints < 0 else '')+'">'+remainingPoints+'</span>' } },
+        { key: { text: "Number of cases" }, value: { text: probationPractitioner.noOfCases } },
+        { key: { text: "Contracted hours" }, value: { text: probationPractitioner.hoursContracted } },
+        { key: { text: "Reductions" }, value: { text: probationPractitioner.hoursReduction } },
+        { key: { text: "Last allocated date" }, value: { text: probationPractitioner.lastAllocated } }
       ]
     }) }}
 
