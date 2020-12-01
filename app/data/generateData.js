@@ -8,7 +8,7 @@ const getServiceUserIndex = () => {
 }
 
 const generateServiceUser = (dates, currentOM = null) => {
-  const previousOM = Math.random() > 0.9 ? probationPractitioners[Math.floor(probationPractitioners.length*Math.random())].id :''
+  const previousOM = Math.random() > 0.8 ? probationPractitioners[Math.floor(probationPractitioners.length*Math.random())].id :''
   const index = getServiceUserIndex()
   const templateIndex = index % serviceUserTemplates.length
   return { 
@@ -19,7 +19,7 @@ const generateServiceUser = (dates, currentOM = null) => {
     template: serviceUserTemplates[templateIndex],
     dates: dates[templateIndex],
     currentOM: currentOM ? currentOM : '',
-    previousOM: previousOM == currentOM ? previousOM : '',
+    previousOM: previousOM != currentOM ? previousOM : '',
   }
 }
 

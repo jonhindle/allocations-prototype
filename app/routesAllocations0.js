@@ -48,9 +48,10 @@ router.use('*', (req, res, next) => {
 
 router.get('/practitioner/:id',({ session: { data: { serviceUsers, probationPractitioners } }, params: { id } }, res) => {
     res.render('allocations/0/practitioner', { 
+      probationPractitioners,
       probationPractitioner: getPractitioner(id, probationPractitioners), 
       currentServiceUsers: serviceUsers.filter( ({ currentOM }) => currentOM == id),
-      previousServiceUsers: serviceUsers.filter( ({ previousCurrentOM }) => previousCurrentOM == id)
+      previousServiceUsers: serviceUsers.filter( ({ previousOM }) => previousOM == id)
     })
   })
 
@@ -103,7 +104,7 @@ router.route('/allocate/:crn')
       }
       const allocateOM = body['allocate-OM']
       //const probationPractitioner = getPractitioner(allocateOM, probationPractitioners)
-      serviceUser.previousCurrentOM = serviceUser.currentOM || serviceUser.previousCurrentOM
+      serviceUser.previousOM = serviceUser.currentOM || serviceUser.previousOM
       serviceUser.currentOM = allocateOM
       //probationPractitioner.lastAllocated = 
       return res.redirect(`/allocations/0/success/${crn}`)
