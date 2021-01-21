@@ -6,12 +6,14 @@
 
 .workforce-progress-container {
   background-color: $govuk-border-colour;
+  margin-bottom: 15px;
   width: 75%;
 }
 
 .workforce-progress-bar {
   background-color: govuk-colour('light-green');
   height: 30px;
+  padding: 10px 0;
   text-align: center;
 
   p {
