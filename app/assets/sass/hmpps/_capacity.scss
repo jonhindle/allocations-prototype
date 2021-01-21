@@ -1,0 +1,33 @@
+.workforce-grade {
+  color: $govuk-secondary-text-colour;
+  display: block;
+
+}
+
+.workforce-progress-container {
+  background-color: $govuk-border-colour;
+  width: 75%;
+}
+
+.workforce-progress-bar {
+  background-color: govuk-colour('light-green');
+  height: 30px;
+  text-align: center;
+
+  p {
+    color: govuk-colour('white');
+    line-height: 30px;
+    margin: 0;
+  }
+}
+
+
+.caseload-swatch {
+  border: 1px solid transparent;
+  border-radius: 30%;
+  display: block;
+  float: left;
+  height: 20px;
+  margin-right: 10px;
+  width: 20px;
+}

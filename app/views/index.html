@@ -1,31 +1,83 @@
 {% extends "layout_workforce_index.html" %}
 
 {% block pageTitle %}
-  {{ serviceName }} Prototype
+  {{ serviceName }} Prototype list
 {% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row govuk-body">
     <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-xl">Prototypes</h1>
-      <h2 class="govuk-heading-l">Workforce</h2>
-      <ul class="govuk-list">
-        <li>
-          <p>MVP dashboard overview, and detail view of member of staff<br>
-          <a class="govuk-link" href="/v1/dashboard">Prototype v1 (January 2021)</a></p>
-        </li>
-      </ul>
+      <span class="govuk-caption-xl">Workforce planning</span>
+      <h1 class="govuk-heading-xl">Prototype list</h1>
+      <p>Sprint history of prototypes for workforce planning and allocation.</p>
 
-      
-      <h2 class="govuk-heading-l">Allocations</h2>
-      <ul class="govuk-list">
-        <li>
-          <a class="govuk-link" href="/allocations/0/new-allocations">Prototype v0 (November 2020)</a>
-        </li>
-      </ul>
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      <h2 class="govuk-heading-l">Alpha</h2>
+      <span class="govuk-caption-m">(January 21&mdash;February 03)</span>
+      <h3 class="govuk-heading-m">Sprint 01</h3>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Capacity views
+          </dt>
+          <dd class="govuk-summary-list__value">
+             <p>First version of prototype using simpler views on team and individual capacity</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/v1/dashboard">
+              View <span class="govuk-visually-hidden"> prototype</span>
+            </a>
+          
+          </dd>
+        </div>
+      </dl>
+
+      <span class="govuk-caption-m">(January 07&mdash;January 20)</span>
+      <h3 class="govuk-heading-m">Sprint 00</h3>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Allocation proof of concept
+          </dt>
+          <dd class="govuk-summary-list__value">
+             <p>Updated layout based on gov design system and using generated dataset</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/allocations/0/new-allocations">
+              View <span class="govuk-visually-hidden"> prototype</span>
+            </a>     
+          </dd>
+        </div>
+      </dl>
     </div>
   </div>
 
 {% endblock %}
+
+
+<div class="govuk-grid-column-full">
+      <span class="govuk-caption-xl">Appeal a householder planning decision</span>
+      <h1 class="govuk-heading-xl">
+        Prototype list
+      </h1>
+      <p>Sprint history of prototypes, with links out to the insight from each round of research where we can.</p>
+      <h2 class="govuk-heading-l">Alpha</h1>
+      <span class="govuk-caption-m">(September 23&mdash;October 06)</span>
+      <h2 class="govuk-heading-m">Sprint 20</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Information from local council
+          </dt>
+          <dd class="govuk-summary-list__value">
+             <p>First version of prototype for LPAs to provide the information we need for an appeal</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="lpa-submission/email">
+              View <span class="govuk-visually-hidden"> prototype</span>
+            </a>
+          
+          </dd>
+        </div>
