@@ -36,7 +36,7 @@
 
 
 {% block head %}
-  {% include "includes/head.html" %}
+  {% include "includes/head-old.html" %}
 {% endblock %}
 
 {% block pageTitle %}
@@ -46,8 +46,8 @@
 {% block header %}
   {% include "includes/cookie-banner.html" %}
   {# Set serviceName in config.js. #}
+
   {{ mojHeader({
-  containerClasses: ".govuk-width-container--app-extra-wide",
   organisationLabel: {
   text: 'HMPPS',
   href: '/'
