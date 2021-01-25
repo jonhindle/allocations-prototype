@@ -2,7 +2,7 @@
 
 
 {% block pageTitle %}
-Dashboard
+Southampton Team 1 | Overview | Workforce planning
 {% endblock %}
 
 {% block beforeContent %}
@@ -54,6 +54,7 @@ Dashboard
   <div class="govuk-grid-column-full">
 
     <h2 class="govuk-heading-l">Caseload totals</h2>
+    <h3 class="govuk-heading-m">Jan 01 to Jan 29</h3>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-quarter">
@@ -80,12 +81,7 @@ Dashboard
   </div>
 </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
     <h2 class="govuk-heading-l">Current workload</h2>
-    <h3 class="govuk-heading-m">Jan 01 to Jan 29</h3>
-
-
     <h3 class="govuk-heading-m">Offender Managers</h3>
 
     <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
@@ -93,6 +89,7 @@ Dashboard
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header" aria-sort="ascending">Name</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Percentage</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Hours free</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Cases</th>
         </tr>
@@ -101,13 +98,15 @@ Dashboard
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="officer-view">Faraz Haynes</a></td>
         <td class="govuk-table__cell" data-sort-value="6961">Probation Service Officer</td>
+        <td class="govuk-table__cell">95%</td>
         <td class="govuk-table__cell">4</td>
         <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">42</td>
       </tr>
 
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell"><a href="#">Margaret Dawson</a></td>
+        <td class="govuk-table__cell"><a href="officer-view-alt">Margaret Dawson</a></td>
         <td class="govuk-table__cell" data-sort-value="6961">Probation Officer</td>
+        <td class="govuk-table__cell">110%</td>
         <td class="govuk-table__cell">-6</td>
         <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">50</td>
       </tr>
@@ -115,6 +114,7 @@ Dashboard
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Aman Crawford</a></td>
         <td class="govuk-table__cell" data-sort-value="6961">Probation Officer</td>
+        <td class="govuk-table__cell">105%</td>
         <td class="govuk-table__cell">0</td>
         <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">38</td>
       </tr>
@@ -122,6 +122,7 @@ Dashboard
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Elin Neale</a></td>
         <td class="govuk-table__cell" data-sort-value="6961">Probation Service Officer</td>
+        <td class="govuk-table__cell">105%</td>
         <td class="govuk-table__cell">-8</td>
         <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">24</td>
       </tr>
@@ -129,6 +130,7 @@ Dashboard
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Donald Daniels</a></td>
         <td class="govuk-table__cell" data-sort-value="6961">Probation Service Officer</td>
+        <td class="govuk-table__cell">90%</td>
         <td class="govuk-table__cell">12</td>
         <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">21</td>
       </tr>
@@ -136,6 +138,7 @@ Dashboard
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Teigan Kaye</a></td>
         <td class="govuk-table__cell" data-sort-value="6961">Probation Officer</td>
+        <td class="govuk-table__cell">95%</td>
         <td class="govuk-table__cell">6</td>
         <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">39</td>
       </tr>
@@ -143,6 +146,7 @@ Dashboard
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Alan Paine</a></td>
         <td class="govuk-table__cell" data-sort-value="6961">Senior Probation Officer</td>
+        <td class="govuk-table__cell">0%</td>
         <td class="govuk-table__cell">0</td>
         <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">0</td>
       </tr>
@@ -150,6 +154,7 @@ Dashboard
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Molly O'Sullivan</a></td>
         <td class="govuk-table__cell" data-sort-value="6961">Probation Officer</td>
+        <td class="govuk-table__cell"><span style="color: #d4351c;">130%</span></td>
         <td class="govuk-table__cell">-33</td>
         <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">51</td>
       </tr>
@@ -157,6 +162,7 @@ Dashboard
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Hamid Rivas</a></td>
         <td class="govuk-table__cell" data-sort-value="6961">Probation Officer</td>
+        <td class="govuk-table__cell">85%</td>
         <td class="govuk-table__cell">22</td>
         <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">37</td>
       </tr>
