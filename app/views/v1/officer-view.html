@@ -18,7 +18,7 @@ Dashboard
       <a class="govuk-breadcrumbs__link" href="#">Kent Surrey Sussex</a>
     </li>
     <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">Southampton Team 1</a>
+      <a class="govuk-breadcrumbs__link" href="team-view">Southampton Team 1</a>
     </li>
   </ol>
 </div>
@@ -28,7 +28,7 @@ Dashboard
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <span class="govuk-caption-xl">Southampton Team 1</span>
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Donald Turnip <span class="workforce-grade">Probation Service Officer</span></h1>  
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Faraz Haynes <span class="workforce-grade">Probation Service Officer</span></h1>  
   </div>
 </div>
 
@@ -38,13 +38,13 @@ Dashboard
 
       <ul class="moj-sub-navigation__list">
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="officer-view">Overview</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#3">Overview</a>
         </li>
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-cases">Current cases</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#3">Active cases</a>
         </li>
         <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="officer-view-cases-old">Historic cases</a>
+          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#3">Archive</a>
         </li>
       </ul>
     </nav><p class="govuk-body-s govuk-!-margin-bottom-2">Last updated: Today at 9:00am</p>
@@ -54,7 +54,8 @@ Dashboard
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h2 class="govuk-heading-l">Workload</h2>
+    <h2 class="govuk-heading-l">Current workload</h2>
+    <h3 class="govuk-heading-m">Jan 01 to Jan 29</h3>
 
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-one-quarter">
@@ -165,15 +166,33 @@ Dashboard
           </div>
         </dl>
 
-    <h2 class="govuk-heading-l">Notes</h2>
-    <p style="max-width: 727px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h2 class="govuk-heading-l">Preferred areas TITLE TBC</h2><!--
+    <p style="max-width: 727px;">
+      <span class="moj-badge moj-badge--blue">repeat offenders</span> 
+      <span class="moj-badge moj-badge--blue">domestic abuse</span> 
+      <span class="moj-badge moj-badge--blue">gangs</span> 
+      <span class="moj-badge moj-badge--red">no high risk</span> 
+      <span class="moj-badge moj-badge--blue">virtual inductions</span> 
+      <span class="moj-badge moj-badge--green">unpaid work</span> 
+      <span class="moj-badge moj-badge--green">management support</span> 
+    </p>
+-->
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Repeat offenders</li> 
+      <li>Domestic abuse</li> 
+      <li>Gangs</li> 
+      <li>No high risk</li> 
+      <li>Virtual inductions</li> 
+      <li>Unpaid work</li>
+    </ul>
+
     <p><a href="">Edit</a></p>
   </div>
 
 
 
   <div class="govuk-grid-column-one-third">
-    <h3 class="govuk-heading-m">Active case composition</h3>
+    <h3 class="govuk-heading-m">Case mix</h3>
     <figure style="margin: 0;" class="govuk-!-padding-bottom-4">
             <img src="/public/images/casemix.png"
                  alt="Visual representation of types of active casework">
@@ -197,11 +216,11 @@ Dashboard
       <div class="workforce-progress-bar tier-other" style="width:10%"></div>
     </div>
     <ul class="govuk-list">
-      <li><span class="caseload-swatch tier-a"></span>Tier A: 50 percent</li>
-      <li><span class="caseload-swatch tier-b"></span>Tiers B1 and B2: 20 percent</li> 
-      <li><span class="caseload-swatch tier-c"></span>Tiers C1 and C2: 5 percent</li>
-      <li><span class="caseload-swatch tier-d"></span>Tiers D1 and D2: 15 percent</li>
-      <li><span class="caseload-swatch tier-other"></span>Other: 10 percent</li>
+      <li><span class="caseload-swatch tier-a"></span>Tier A: 50%</li>
+      <li><span class="caseload-swatch tier-b"></span>Tiers B1 and B2: 20%</li> 
+      <li><span class="caseload-swatch tier-c"></span>Tiers C1 and C2: 5%</li>
+      <li><span class="caseload-swatch tier-d"></span>Tiers D1 and D2: 15%</li>
+      <li><span class="caseload-swatch tier-other"></span>Other: 10%</li>
     </ul>
 
   </div>
