@@ -73,8 +73,42 @@ Southampton Team 1 | Overview | Workforce planning
     </div>
   </div>
 </div>
-    <h2 class="govuk-heading-l">Capacity over time</h2>
 
+ <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Month', '2019', '2020'],
+          ['Jan',  120, 124],
+          ['Feb',  118, 128],
+          ['Mar',  122, 122],
+          ['Apr',  120, 117],
+          ['May',  138, 116],
+          ['Jun',  130, 112],
+          ['Jul',  126, 142],
+          ['Aug',  118, 138],
+          ['Sep',  110, 136],
+          ['Oct',  108, 134],
+          ['Nov',  113, 130],
+          ['Dec',  118, 130],
+        ]);
+
+        var options = {
+          title: 'Team capacity',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>-->
+<div class="govuk-grid-row govuk-!-margin-bottom-9">
+  <div class="govuk-grid-column-full">
 
     <h2 class="govuk-heading-l">Current workload</h2>
     <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
@@ -82,8 +116,8 @@ Southampton Team 1 | Overview | Workforce planning
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
-          <th scope="col" class="govuk-table__header" aria-sort="none">Capacity</th>
-          <th scope="col" class="govuk-table__header" aria-sort="none">Hours free</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Capacity</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Hours free</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Total cases</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Community cases</th>
         </tr>
@@ -172,9 +206,21 @@ Southampton Team 1 | Overview | Workforce planning
       
       </tbody>
     </table> 
-
   </div>
 </div>
+<!-- <div class="govuk-grid-row govuk-!-margin-bottom-9">
+  <div class="govuk-grid-column-full">
+<h2 class="govuk-heading-l">Capacity over time</h2>
+      <figure style="margin: 0;" class="govuk-!-padding-bottom-4">
+          <img style="max-width:700px;" src="/public/images/graph.png"
+               alt="Visual representation of types of active casework">
+          <figcaption class="visually-hidden">
+            
+          </figcaption>
+      </figure>
+
+  </div>
+</div> -->
 {% endblock %}
 
 {% block scripts %}
