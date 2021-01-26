@@ -37,24 +37,17 @@ Southampton Team 1 | Overview | Workforce planning
         <li class="moj-sub-navigation__item">
           <a class="moj-sub-navigation__link govuk-link--no-visited-state" aria-current="page" href="#">Overview</a>
         </li>
-        
-        <!-- <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#-cases">Current cases</a>
-        </li>
-        <li class="moj-sub-navigation__item">
-          <a class="moj-sub-navigation__link govuk-link--no-visited-state" href="#-cases-old">Historic cases</a>
-        </li>-->
       </ul>
     </nav>
-    <p class="govuk-!-margin-bottom-2">Last updated: Today at 9:00am</p>
+    
   </div>
 </div>
 
 <div class="govuk-grid-row govuk-!-margin-bottom-9">
   <div class="govuk-grid-column-full">
 
-    <h2 class="govuk-heading-l">Caseload totals</h2>
-    <h3 class="govuk-heading-m">Jan 01 to Jan 29</h3>
+    <h2 class="govuk-heading-l" style="margin-bottom: 0!important;">Caseload totals</h2>
+    <p class="govuk-!-margin-bottom-2">Last updated: Today at 9:00am</p>
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-quarter">
@@ -80,95 +73,115 @@ Southampton Team 1 | Overview | Workforce planning
     </div>
   </div>
 </div>
+    
+
 
     <h2 class="govuk-heading-l">Current workload</h2>
-    <h3 class="govuk-heading-m">Offender Managers</h3>
-
     <table class="govuk-table govuk-table-xl" data-module="moj-sortable-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header" aria-sort="ascending">Name</th>
+          <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Grade</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Capacity</th>
           <th scope="col" class="govuk-table__header" aria-sort="none">Hours free</th>
-          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Cases</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Total cases</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric" aria-sort="none">Community cases</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="officer-view">Faraz Haynes</a></td>
-        <td class="govuk-table__cell" data-sort-value="6961">Probation Officer</td>
-        <td class="govuk-table__cell">95%</td>
-        <td class="govuk-table__cell">4</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">42</td>
+        <td class="govuk-table__cell" data-sort-value="Probation Officer">Probation Officer</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="95">95%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="4">4</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="42">42</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="6">6</td>
       </tr>
 
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="officer-view-alt">Margaret Dawson</a></td>
-        <td class="govuk-table__cell" data-sort-value="6961">Probation Service Officer</td>
-        <td class="govuk-table__cell">110%</td>
-        <td class="govuk-table__cell">-6</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">50</td>
+        <td class="govuk-table__cell" data-sort-value="Probation Service Officer">Probation Service Officer</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="110">110%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="6">-6</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="50">50</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="32">32</td>
       </tr>
 
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Aman Crawford</a></td>
-        <td class="govuk-table__cell" data-sort-value="6961">Probation Officer</td>
-        <td class="govuk-table__cell">105%</td>
-        <td class="govuk-table__cell">0</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">38</td>
+        <td class="govuk-table__cell" data-sort-value="Probation Officer">Probation Officer</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="105">105%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="0">0</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="38">38</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">8</td>
       </tr>
 
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Elin Neale</a></td>
-        <td class="govuk-table__cell" data-sort-value="6961">Probation Service Officer</td>
-        <td class="govuk-table__cell">105%</td>
-        <td class="govuk-table__cell">-8</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">24</td>
+        <td class="govuk-table__cell" data-sort-value="Probation Service Officer">Probation Service Officer</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="105">105%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="8">-8</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="24">24</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="24">24</td>
       </tr>
 
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Donald Daniels</a></td>
-        <td class="govuk-table__cell" data-sort-value="6961">Probation Service Officer</td>
-        <td class="govuk-table__cell">90%</td>
-        <td class="govuk-table__cell">12</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">21</td>
+        <td class="govuk-table__cell" data-sort-value="Probation Service Officer">Probation Service Officer</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="90">90%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="12">12</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="21">21</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="17">17</td>
       </tr>
 
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Teigan Kaye</a></td>
-        <td class="govuk-table__cell" data-sort-value="6961">Probation Officer</td>
-        <td class="govuk-table__cell">95%</td>
-        <td class="govuk-table__cell">6</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">39</td>
+        <td class="govuk-table__cell" data-sort-value="Probation Officer">Probation Officer</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="95">95%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="6">6</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="39">39</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="20">20</td>
       </tr>
 
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Alan Paine</a></td>
-        <td class="govuk-table__cell" data-sort-value="6961">Senior Probation Officer</td>
-        <td class="govuk-table__cell">0%</td>
-        <td class="govuk-table__cell">0</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">0</td>
+        <td class="govuk-table__cell" data-sort-value="Senior Probation Officer">Senior Probation Officer</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="0">0%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="0">0</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="0">0</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="0">0</td>
       </tr>
 
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Molly O'Sullivan</a></td>
-        <td class="govuk-table__cell" data-sort-value="6961">Probation Officer</td>
-        <td class="govuk-table__cell"><span style="color: #d4351c;">130%</span></td>
-        <td class="govuk-table__cell">-33</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">51</td>
+        <td class="govuk-table__cell" data-sort-value="Probation Officer">Probation Officer</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="130"><span style="color: #d4351c;">130%</span></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="33">-33</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="51">51</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="2">2</td>
       </tr>
 
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="#">Hamid Rivas</a></td>
-        <td class="govuk-table__cell" data-sort-value="6961">Probation Officer</td>
-        <td class="govuk-table__cell">85%</td>
-        <td class="govuk-table__cell">22</td>
-        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="1897">37</td>
+        <td class="govuk-table__cell" data-sort-value="Probation Officer">Probation Officer</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="85">85%</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="22">22</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="37">37</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric" data-sort-value="12">12</td>
       </tr>
+      
       </tbody>
     </table> 
 
   </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+    new MOJFrontend.SortableTable({
+      table: $('table')[1]
+    });
+  </script>
 {% endblock %}
