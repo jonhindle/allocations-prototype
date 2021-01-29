@@ -28,47 +28,30 @@
 {% from "govuk/components/tag/macro.njk"              import govukTag %}
 {% from "govuk/components/textarea/macro.njk"         import govukTextarea %}
 {% from "govuk/components/warning-text/macro.njk"     import govukWarningText %}
-{% from "moj/components/banner/macro.njk" import mojBanner %}
-{% from "moj/components/header/macro.njk" import mojHeader %}
-{% from "moj/components/badge/macro.njk" import mojBadge %}
-{% from "moj/components/pagination/macro.njk" import mojPagination %}
-
-
 
 {% block head %}
-  {% include "includes/head-old.html" %}
+  {% include "includes/head.html" %}
 {% endblock %}
 
 {% block pageTitle %}
-  {{ serviceName }} Prototype
+  GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}
   {% include "includes/cookie-banner.html" %}
-  {# Set serviceName in config.js. #}
+  {# Set serviceName in config.js. #} 
+  {%- from "moj/components/header/macro.njk" import mojHeader -%}
 
-  {{ mojHeader({
-  organisationLabel: {
-  text: 'HMPPS',
-  href: '/'
-  },
-  serviceLabel: {
-  text: serviceName,
-  href: '#'
-  },
-  navigation: {
-  label: 'Account navigation',
-  items: [{
-    text: "Camilla Horace",
-    href: '#',
-    active: true
-  }, {
-    text: 'Sign out',
-    href: '#'
-  }]
-  }
-
-  }) }} 
+    {{ mojHeader({
+    organisationLabel: {
+    text: 'HMPPS',
+    href: '/'
+    },
+    serviceLabel: {
+    text: 'Caseload review'
+    }
+}) }} 
+<!-- Add banner here -->
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}

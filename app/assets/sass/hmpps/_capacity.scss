@@ -1,0 +1,58 @@
+.workforce-grade {
+  color: $govuk-secondary-text-colour;
+  display: block;
+}
+
+.tier-a {
+  background-color: govuk-colour('bright-purple');
+}
+
+.tier-b {
+  background-color: govuk-colour('purple');
+}
+
+.tier-c {
+  background-color: govuk-colour('dark-blue');
+}
+
+.tier-d {
+  background-color: govuk-colour('blue');
+}
+
+.tier-other {
+  background-color: govuk-colour('light-blue');
+}
+
+.caseload-swatch {
+  border: 1px solid transparent;
+  border-radius: 30%;
+  display: block;
+  float: left;
+  height: 20px;
+  margin-right: 10px;
+  width: 20px;
+}
+
+.workforce-progress-container {
+  background-color: govuk-colour('white');
+  height: 50px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.workforce-progress-bar {
+  border: solid;
+  border-color: govuk-colour('white');
+  border-right: 3px;
+  float: left;
+  height: 30px;
+  margin-right: -3px;
+  padding: 10px 0;
+  text-align: center;
+
+  p {
+    color: govuk-colour('white');
+    line-height: 30px;
+    margin: 0;
+  }
+}
