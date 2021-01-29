@@ -1,4 +1,4 @@
-{% extends "layout_moj.html" %}
+{% extends "layout_workforce.html" %}
 
 {% block pageTitle %}
   {{ serviceName }} Prototype - service user
@@ -8,7 +8,7 @@
   {% set query = params.query %}
   {% set showAllOM = query.showAllOM if query.showAllOM else '' %}
   {% if not serviceUser %}
-    <div class="govuk-width-container govuk-grid-row govuk-body">
+    <div class="govuk-width-container govuk-grid-row">
       <div class="govuk-grid-column-full">
         {{ govukBackLink({
           text: "Back",
@@ -22,7 +22,7 @@
   {% else %}
     {% include "./partial/service-user-bar.njk" %}
     {% set currentOM = serviceUser.currentOM %}
-    <div class="govuk-width-container govuk-grid-row govuk-body">
+    <div class="govuk-width-container govuk-grid-row">
       <div class="govuk-grid-column-full">
         {{ govukBackLink({
           text: "Back",
@@ -79,6 +79,7 @@
             <div>
             {% endif %}
             {{ govukTable({
+              classes: "govuk-table-xl",
               head: tableHeadings,
               rows: tableRows
             }) }}
