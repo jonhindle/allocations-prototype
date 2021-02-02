@@ -62,9 +62,9 @@
           {% elseif heading.key == 'name' %}
             {% set tableRow = (tableRow.push({ html: '<a href="/allocations/0/service-user/'+case.crn+'">'+case.name+'</a>' }), tableRow) %}
           {% elseif heading.key == 'tier' %}
-            {% set tableRow = (tableRow.push({ text: case.template.tier }), tableRow) %}
+            {% set tableRow = (tableRow.push({ text: case.tier }), tableRow) %}
           {% elseif heading.key == 'allocationDate' %}
-            {% set tableRow = (tableRow.push({ text: case.dates.sentenceStart }), tableRow) %}
+            {% set tableRow = (tableRow.push({ text: case.sentenceStart }), tableRow) %}
           {% else %}
             {% set tableRow = (tableRow.push({ text: case[heading.key] }), tableRow) %}
           {% endif %}
@@ -106,9 +106,9 @@
           {% elseif heading.key == 'name' %}
             {% set tableRow = (tableRow.push({ html: '<a href="/allocations/0/service-user/'+case.crn+'">'+case.name+'</a>' }), tableRow) %}
           {% elseif heading.key == 'tier' %}
-            {% set tableRow = (tableRow.push({ text: case.template.tier }), tableRow) %}
+            {% set tableRow = (tableRow.push({ text: case.tier }), tableRow) %}
           {% elseif heading.key == 'allocationDate' %}
-            {% set tableRow = (tableRow.push({ text: case.dates.sentenceStart }), tableRow) %}
+            {% set tableRow = (tableRow.push({ text: case.sentenceStart }), tableRow) %}
           {% else %}
             {% set tableRow = (tableRow.push({ text: case[heading.key] }), tableRow) %}
           {% endif %}

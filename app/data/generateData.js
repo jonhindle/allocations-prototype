@@ -16,10 +16,10 @@ const generateServiceUser = (dates, currentOM = null) => {
     postcode: postCodes[index%postCodes.length], 
     crn: `J${678911 + (index*3)}`,
     pnc: `2012/${123100000+(index*131)}F`,
-    template: serviceUserTemplates[templateIndex],
-    dates: dates[templateIndex],
     currentOM: currentOM ? currentOM : '',
     previousOM: previousOM != currentOM ? previousOM : '',
+    ...serviceUserTemplates[templateIndex],
+    ...dates[templateIndex],
   }
 }
 

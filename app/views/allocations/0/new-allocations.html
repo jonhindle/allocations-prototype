@@ -25,7 +25,7 @@
         {% set tableRow = [] %}
         {% for heading in newIncomingCases_tableHeadings %}
           {% if heading.key == 'slaIndicator' %}
-            {% if user.dates.sla <= 1 %}
+            {% if user.sla <= 1 %}
               {% set slaAlert %}
                 <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
 <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
@@ -38,9 +38,9 @@ C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.
           {% elseif heading.key == 'crn' or heading.key == 'postcode' %}
             {% set tableRow = (tableRow.push({ text: user[heading.key] }), tableRow) %}
           {% elseif heading.key == 'sla' %}
-            {% set tableRow = (tableRow.push({ text: user.dates[heading.key] }), tableRow) %}
+            {% set tableRow = (tableRow.push({ text: user[heading.key] }), tableRow) %}
           {% else %}
-            {% set tableRow = (tableRow.push({ text: user.template[heading.key] }), tableRow) %}
+            {% set tableRow = (tableRow.push({ text: user[heading.key] }), tableRow) %}
           {% endif %}
         {% endfor%}
         {% set newIncomingCases_tableRows = (newIncomingCases_tableRows.push(tableRow), newIncomingCases_tableRows) %}
@@ -93,9 +93,9 @@ C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.
             {% if heading.key == 'name' %}
               {% set tableRow = (tableRow.push({ html: '<a href="./service-user/'+user.crn+'">'+user[heading.key]+'</a>' }), tableRow) %}
             {% elseif heading.key == 'tier' %}
-              {% set tableRow = (tableRow.push({ text: user.template.tier }), tableRow) %}
+              {% set tableRow = (tableRow.push({ text: user.tier }), tableRow) %}
             {% elseif heading.key == 'allocationDate' %}
-              {% set tableRow = (tableRow.push({ text: user.dates.sentenceStart }), tableRow) %}
+              {% set tableRow = (tableRow.push({ text: user.sentenceStart }), tableRow) %}
             {% elseif heading.key %}
               {% set tableRow = (tableRow.push({ text: user[heading.key] }), tableRow) %}
             {% endif %}
