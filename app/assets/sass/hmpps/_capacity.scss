@@ -56,3 +56,30 @@
     margin: 0;
   }
 }
+
+.tooltip {
+  border-bottom: 1px dotted govuk-colour('dark-grey');
+  display: inline-block;
+  position: relative;
+
+  .tooltiptext {
+    background-color: govuk-colour('dark-grey');
+    border-radius: 6px;
+    color: govuk-colour('white');
+    left: 105%;
+    padding: 5px 0;
+    position: absolute;
+    text-align: center;
+    top: -5px;
+    visibility: hidden;
+    width: 120px;
+    z-index: 1;
+  }
+
+  &:hover {
+    .tooltiptext {
+      visibility: visible;
+    }
+  }
+}
+
