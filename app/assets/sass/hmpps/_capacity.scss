@@ -50,10 +50,65 @@
   padding: 10px 0;
   text-align: center;
 
+  &.bar-width-5 {
+    width: 5%;
+  }
+
+  &.bar-width-10 {
+    width: 10%;
+  }
+
+  &.bar-width-15 {
+    width: 15%;
+  }
+
+  &.bar-width-20 {
+    width: 20%;
+  }
+
+  &.bar-width-25 {
+    width: 25%;
+  }
+
+  &.bar-width-30 {
+    width: 30%;
+  }
+
+  &.bar-width-35 {
+    width: 35%;
+  }
+
+  &.bar-width-40 {
+    width: 40%;
+  }
+
+  &.bar-width-45 {
+    width: 45%;
+  }
+
+  &.bar-width-50 {
+    width: 50%;
+  }
+
+  &.bar-width-75 {
+    width: 75%;
+  }
+
   p {
     color: govuk-colour('white');
     line-height: 30px;
     margin: 0;
+  }
+}
+
+.overview {
+  height: 20px;
+  margin: -6px 0 0;
+
+  .workforce-progress-bar {
+    color: govuk-colour('white');
+    line-height: 32px;
+    padding: 0;
   }
 }
 
@@ -83,3 +138,12 @@
   }
 }
 
+//* Hide content meant only for screen readers */
+.sr-only {
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  width: 1px;
+}
