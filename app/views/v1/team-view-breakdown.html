@@ -275,14 +275,3 @@ Southampton Team 1 | Overview | Workforce planning
   </div>
 </div>
 {% endblock %}
-
-{% block scripts %}
-  {{ super() }}
-  <script>
-    console.log($('table'))
-
-    new MOJFrontend.SortableTable({
-      table: $('table')[0]
-    });
-  </script>
-{% endblock %}
