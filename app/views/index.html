@@ -1,83 +1,140 @@
-{% extends "layout_workforce_index.html" %}
+{% extends "layout_index.html" %}
 
 {% block pageTitle %}
-  {{ serviceName }} Prototype list
+Prototype | HMPPS | Manage a workforce
 {% endblock %}
 
 {% block content %}
+<div class="govuk-grid-row">
 
-  <div class="govuk-grid-row govuk-body">
-    <div class="govuk-grid-column-full">
-      <span class="govuk-caption-xl">Workforce planning</span>
-      <h1 class="govuk-heading-xl">Prototype list</h1>
-      <p>Sprint history of prototypes for workforce planning and allocation.</p>
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Alpha 2</h1>
 
-      <h2 class="govuk-heading-l">Alpha</h2>
-      <span class="govuk-caption-m">(January 21&mdash;February 03)</span>
-      <h3 class="govuk-heading-m">Sprint 01</h3>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Capacity views
-          </dt>
-          <dd class="govuk-summary-list__value">
-             <p>First version of prototype using simpler views on team and individual capacity</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/v1/team-view">
-              View <span class="govuk-visually-hidden"> prototype</span>
-            </a>
+    <div class="moj-timeline">
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">MVP Detail for team and individual screens</h2>
+          <p class="moj-timeline__byline">(Sprint 1)</p>
+        </div>
+        <p class="moj-timeline__date">February 15&mdash;March 1
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>Iteration of capacity screens based on feedback from user research, addition of single metric to replace points.</p>
+          <a class="govuk-button govuk-!-margin-bottom-6" href="/v1/team-view">View prototype</a>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a href="/v1/team-view-breakdown">View alternate team view with case type breakdown</a></li>
+            <li><a href="/v1/team-view-fixed-breakdown">View alternate case view with simplified breakdown</a></li>
+            <li><a href="/v1/team-view-v2">View alternate team view with table sorting</a></li>
+            <li><a href="/v1/officer-view-cases-badges">View alternate case view with tier badges</a></li>
+          </ul>
+
           
-          </dd>
         </div>
-      </dl>
+      </div>
 
-      <span class="govuk-caption-m">(January 07&mdash;January 20)</span>
-      <h3 class="govuk-heading-m">Sprint 00</h3>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Allocation proof of concept
-          </dt>
-          <dd class="govuk-summary-list__value">
-             <p>Updated layout based on gov design system and using generated dataset</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/allocations/0/new-allocations">
-              View <span class="govuk-visually-hidden"> prototype</span>
-            </a>     
-          </dd>
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Capacity</h2>
+          <p class="moj-timeline__byline">(Sprint 0)</p>
         </div>
-      </dl>
+        <p class="moj-timeline__date">January 21&mdash;February 15
+        </p>
+
+        <div class="moj-timeline__description">
+          <p>First version of prototype using simpler views on team and individual capacity.</p>
+          <a class="govuk-button govuk-!-margin-bottom-0" href="/v0/team-view">View Prototype</a>
+        </div>
+      </div>
+
     </div>
+
+    <h1 class="govuk-heading-l">Alpha 1</h1>
+
+    <div class="moj-timeline">
+
+      <div class="moj-timeline__item">
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Allocation proof of concept</h2>
+          <p class="moj-timeline__byline">(Kanban)</p>
+        </div>
+        <p class="moj-timeline__date">December 2020
+        </p>
+
+        <div class="moj-timeline__description">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Updated layout based on gov design system and using generated dataset</li>
+            <li>Sortable data tables</li>
+            <li>View of Service user</li>
+          </ul>
+          <a class="govuk-button govuk-!-margin-bottom-0" href="/allocations/0/new-allocations">View prototype</a>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
-{% endblock %}
-
-
-<div class="govuk-grid-column-full">
-      <span class="govuk-caption-xl">Appeal a householder planning decision</span>
-      <h1 class="govuk-heading-xl">
-        Prototype list
-      </h1>
-      <p>Sprint history of prototypes, with links out to the insight from each round of research where we can.</p>
-      <h2 class="govuk-heading-l">Alpha</h1>
-      <span class="govuk-caption-m">(September 23&mdash;October 06)</span>
-      <h2 class="govuk-heading-m">Sprint 20</h2>
-
-            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Information from local council
-          </dt>
-          <dd class="govuk-summary-list__value">
-             <p>First version of prototype for LPAs to provide the information we need for an appeal</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="lpa-submission/email">
-              View <span class="govuk-visually-hidden"> prototype</span>
+  <div class="govuk-grid-column-one-third">
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Related content
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list useful-links govuk-!-font-size-16">
+          <li>
+            <a href="https://dsdmoj.atlassian.net/wiki/spaces/DPP/pages/2867069124/Manage+a+workforce"
+              class="govuk-link--no-visited-state">
+              Project Confluence
             </a>
-          
-          </dd>
-        </div>
+          </li>
+          <li>
+            <a href="https://trello.com/b/EG3sugDU/allocation-priorities"
+              class="govuk-link--no-visited-state">
+              Project Trello
+            </a>
+          </li>
+          <li>
+            <a href="https://drive.google.com/drive/u/1/folders/12kESGz_0io-aWUdAPZqBIISFgOfTQBUh" class="govuk-link--no-visited-state">
+              Team Google Drive
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/jonhindle/allocations-prototype" class="govuk-link--no-visited-state">
+              Prototype GitHub repository
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">Examples and documentation</h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list useful-links govuk-!-font-size-16">
+          <li>
+            <a href="https://govuk-prototype-kit.herokuapp.com/docs/tutorials-and-examples"
+              class="govuk-link--no-visited-state">
+              GOV.UK Prototype Kit - Tutorials and examples
+            </a>
+          </li>
+          <li>
+            <a href="https://design-system.service.gov.uk/" class="govuk-link--no-visited-state">
+              GOV.UK Design System
+            </a>
+          </li>
+          <li>
+            <a href="https://moj-design-system.herokuapp.com/" class="govuk-link--no-visited-state">
+              MOJ Design System
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/ctdesign/gov-design-systems-list/blob/master/README.md"
+              class="govuk-link--no-visited-state">
+              GOV Design Systems list
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  {% endblock %}
